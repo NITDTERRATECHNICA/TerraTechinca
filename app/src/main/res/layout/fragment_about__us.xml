@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_about__us"
+    android:background="#202020"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="delhi.android.nit.com.saptrang2k16.About_Us"
+    tools:showIn="@layout/activity_about__us">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrview"
+        android:layout_height="wrap_content">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:padding="10dp"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/about_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image_logo"
+                android:layout_centerInParent="true"
+                app:cardBackgroundColor="@android:color/background_light"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#202020"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/about"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/image_logo"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="About Terratechnica"
+                            android:textColor="#e2e2e2"
+                            android:textSize="20sp"
+                            android:textStyle="normal|bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#dedede"
+                            ></View>
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/about"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_gravity="center"
+                                android:layout_height="40dp"
+                                android:background="#dedede"/>
+
+                            <ImageView
+                                android:id="@+id/ABfb"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="10dp"
+                                android:src="@drawable/fb"
+                                android:clickable="true" />
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_gravity="center"
+                                android:layout_height="40dp"
+                                android:background="#dedede"/>
+
+                            <ImageView
+                                android:id="@+id/AByou"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="10dp"
+
+                                android:src="@drawable/youtube" />
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_gravity="center"
+                                android:layout_height="40dp"
+                                android:background="#dedede"/>
+
+
+                            <ImageView
+                                android:id="@+id/ABinst"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="10dp"
+
+                                android:src="@drawable/inst" />
+                            <View
+                                android:layout_width="2dp"
+                                android:layout_gravity="center"
+                                android:layout_height="40dp"
+                                android:background="#dedede"/>
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2dp"
+                            android:background="#dedede"
+                            ></View>
+                    </LinearLayout>
+                </ScrollView>
+            </android.support.v7.widget.CardView>
+
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tvAb"
+                android:layout_width="3dp"
+                android:layout_height="30dp"
+                android:background="#ffffff"
+                android:layout_marginBottom="10dp"/>
+            <View
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/tvAb"
+                android:layout_width="3dp"
+                android:layout_height="30dp"
+                android:background="#ffffff"
+                android:layout_marginBottom="10dp"/>
+            <View
+                android:id="@+id/vAB"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#ffffff"
+                android:layout_below="@+id/tvAb"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:layout_below="@+id/vAB"
+                android:id="@+id/image_logo"
+                android:src="@drawable/flipkart"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvAb"
+                android:text="TerraTechnica"
+                android:textColor="#ffffff"
+                android:typeface="sans"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:textStyle="normal|bold"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
