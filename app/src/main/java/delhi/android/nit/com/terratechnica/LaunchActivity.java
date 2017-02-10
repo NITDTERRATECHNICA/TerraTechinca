@@ -35,11 +35,13 @@ public class LaunchActivity extends AppCompatActivity
 
     private TextView info;
     private LoginButton loginButton;
+    View header;
     private CallbackManager callbackManager;
     FrameLayout contentContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_launch);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -47,7 +49,7 @@ public class LaunchActivity extends AppCompatActivity
 
 
         //fb thing
-        FacebookSdk.sdkInitialize(getApplicationContext());
+
         callbackManager = CallbackManager.Factory.create();
         info = (TextView)findViewById(R.id.info);
         loginButton = (LoginButton)findViewById(R.id.login_button);
@@ -87,7 +89,7 @@ public class LaunchActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+       /* BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
@@ -126,7 +128,7 @@ public class LaunchActivity extends AppCompatActivity
 
 
             }
-        });
+        });*/
 
     }
     @Override
