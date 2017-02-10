@@ -1,5 +1,6 @@
 package delhi.android.nit.com.terratechnica;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
@@ -15,7 +16,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
@@ -25,6 +33,9 @@ import layout.Events;
 public class LaunchActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private TextView info;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
     FrameLayout contentContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +44,37 @@ public class LaunchActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("TERRA TECHNICA");
+
+
+        //fb thing
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        info = (TextView)findViewById(R.id.info);
+        loginButton = (LoginButton)findViewById(R.id.login_button);
+
+        //fb callback intercpt
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                info.setText(
+                        "User ID: "
+                                + loginResult.getAccessToken().getUserId()
+                                + "\n" +
+                                "Auth Token: "
+                                + loginResult.getAccessToken().getToken()
+                );
+            }
+
+            @Override
+            public void onCancel() {
+                info.setText("Login attempt canceled.");
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                info.setText("Login attempt failed.");
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -51,48 +93,46 @@ public class LaunchActivity extends AppCompatActivity
             public void onTabSelected(@IdRes int tabId) {
                 if (tabId == R.id.tab_about_us) {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    if(getSupportFragmentManager().findFragmentById(R.id.contentContainer)!=null) {
+                    if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
                         fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.contentContainer));
                     }
-                    fragmentTransaction.add(R.id.contentContainer,new About_Us());
+                    fragmentTransaction.add(R.id.contentContainer, new About_Us());
                     fragmentTransaction.commit();
-                }
-                else if (tabId == R.id.tab_contact)
-                {
+                } else if (tabId == R.id.tab_contact) {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    if(getSupportFragmentManager().findFragmentById(R.id.contentContainer)!=null) {
+                    if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
                         fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.contentContainer));
                     }
-                    fragmentTransaction.add(R.id.contentContainer,new Contact_Us());
+                    fragmentTransaction.add(R.id.contentContainer, new Contact_Us());
                     fragmentTransaction.commit();
 
-                }
-                else if (tabId == R.id.tab_events)
-                {
+                } else if (tabId == R.id.tab_events) {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    if(getSupportFragmentManager().findFragmentById(R.id.contentContainer)!=null) {
+                    if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
                         fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.contentContainer));
                     }
-                    fragmentTransaction.add(R.id.contentContainer,new Events());
+                    fragmentTransaction.add(R.id.contentContainer, new Events());
                     fragmentTransaction.commit();
-                }
-                else if (tabId == R.id.tab_instagram)
-                {
+                } else if (tabId == R.id.tab_instagram) {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    if(getSupportFragmentManager().findFragmentById(R.id.contentContainer)!=null) {
+                    if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
                         fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.contentContainer));
                     }
-                    fragmentTransaction.add(R.id.contentContainer,new insta());
+                    fragmentTransaction.add(R.id.contentContainer, new insta());
                     fragmentTransaction.commit();
-                }else if (tabId == R.id.tab_location)
-                {
+                } else if (tabId == R.id.tab_location) {
 
                 }
+
 
             }
         });
-    }
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -124,6 +164,8 @@ public class LaunchActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
