@@ -4,25 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_launch"
     android:layout_width="match_parent"
-    android:background="#202020"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="delhi.android.nit.com.terratechnica.LaunchActivity"
     tools:showIn="@layout/app_bar_launch">
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
+
 
     <FrameLayout
         android:id="@+id/contentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-         />
+        android:layout_above="@+id/bottomBar" />
+
+    <com.roughike.bottombar.BottomBar
+        android:background="#ffffff"
+        android:id="@+id/bottomBar"
+        app:bb_activeTabColor="#ff5722"
+        app:bb_inActiveTabColor="#292929"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:bb_tabXmlResource="@xml/tabs" />
+
 
 
 

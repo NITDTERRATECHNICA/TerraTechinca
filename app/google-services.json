@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "53350333311",
+    "project_id": "firebase-terratechnica"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53350333311:android:6428361686ec993e",
+        "android_client_info": {
+          "package_name": "delhi.android.nit.com.terratechnica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53350333311-112km5t327bce32l242n6kdni7pa30i5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOuL4Wnj-fK7jMG2KXG9oetKI_lUlTrWk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#202020"
+    android:background="#f4f4f4"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="layout.Events">
 
@@ -16,8 +16,10 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabTextColor="@android:color/white"
-            android:background="#0a0a0a"/>
+            app:tabTextColor="@android:color/black"
+            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabSelectedTextColor="@android:color/black"
+            android:background="#f4f4f4"/>
 
 
     </android.support.design.widget.AppBarLayout>
