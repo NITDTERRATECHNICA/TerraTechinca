@@ -13,10 +13,6 @@
         icon="@drawable/instagram"
         title="InstaFeed"/>
     <tab
-        id="@+id/tab_location"
-        icon="@drawable/location"
-        title="Location"/>
-    <tab
         id="@+id/tab_contact"
         icon="@drawable/contact"
         title="Contact"/>

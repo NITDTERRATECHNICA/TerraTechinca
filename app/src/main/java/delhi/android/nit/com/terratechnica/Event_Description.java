@@ -28,7 +28,8 @@ public class Event_Description extends AppCompatActivity {
     TextView despTitle,despTitleHint,despDesp,despContact;
     boolean flag = false;
     //String email ,lname,fname,college,phone;
-    int data,mParam1;
+    int position;
+    String type;
     String eventName;
     //String IMAGE_LINK = "http://saptrangnitd.com/beta1/ap/images/";
 
@@ -66,35 +67,68 @@ public class Event_Description extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        data = getIntent().getIntExtra("data",0);
-        mParam1 = getIntent().getIntExtra("mParam1",1);
+        position = getIntent().getIntExtra("position",0);
+        type = getIntent().getStringExtra("type");
         eventName = getIntent().getStringExtra("eventName");
+        image = (ImageView) findViewById(R.id.image);
+        despTitle = (TextView) findViewById(R.id.despTitle);
+        despTitleHint = (TextView) findViewById(R.id.despTitleHint);
+        despDesp = (TextView) findViewById(R.id.despDesp);
+        despContact = (TextView) findViewById(R.id.despContact);
 
-        if(mParam1  == 1) {
-            //despTitle = (TextView) findViewById(R.id.despTitle);
-            //despTitleHint = (TextView) findViewById(R.id.despTitleHint);
-            //despDesp = (TextView) findViewById(R.id.despDesp);
-            //despContact = (TextView) findViewById(R.id.despContact);
+        if(type.equals("coding")) {
+             despTitle.setText(Data.codingEvents[position]);
+             despTitleHint.setText("(" + "Coding Event" + ")");
+             despDesp.setText(Data.codingDesp[position]);
+             despContact.setText("Coming soon!!");
 
-           // despTitle.setText(Data.title[data]);
-            //despTitleHint.setText("(" + Data.titleDescription[data] + ")");
-            //despDesp.setText(Data.description[data]);
-            //despContact.setText(Data.contacts[data]);
 
-            image = (ImageView) findViewById(R.id.image);
 
             Picasso.with(this)
-                    .load(R.drawable.asdfgh)
-
+                    .load(Data.codingPics[position])
                     .error(R.drawable.asd)
+                    .resize(500,500)
+                    .centerCrop()
                     .into(image);
         }
-        else{
-            image = (ImageView) findViewById(R.id.image);
+        else if(type.equals("robotics")) {
+            despTitle.setText(Data.roboEvent[position]);
+            despTitleHint.setText("(" + "Robo Event" + ")");
+            despDesp.setText(Data.roboDesp[position]);
+            despContact.setText("Coming soon!!");
+            Picasso.with(this)
+                    .load(Data.RoboPics[position])
+                    .error(R.drawable.asd)
+                    .resize(500,500)
+                    .centerCrop()
+                    .into(image);
+        }
+        else if(type.equals("online"))
+        {
+            despTitle.setText(Data.onlineEvent[position]);
+            despTitleHint.setText("(" + "Online Event" + ")");
+            despDesp.setText(Data.onlineDesp[position]);
+            despContact.setText("Coming soon!!");
 
             Picasso.with(this)
-                    .load(R.drawable.asdfgh)
+                    .load(Data.onlinePics[position])
                     .error(R.drawable.asd)
+                    .resize(500,500)
+                    .centerCrop()
+                    .into(image);
+        }
+        else if(type.equals("misc"))
+        {
+            despTitle.setText(Data.MiscEvent[position]);
+            despTitleHint.setText("(" + "Misc Event" + ")");
+            despDesp.setText(Data.MiscDesp[position]);
+            despContact.setText("Coming soon!!");
+
+            Picasso.with(this)
+                    .load(Data.MiscPics[position])
+                    .error(R.drawable.asd)
+                    .resize(500,500)
+                    .centerCrop()
                     .into(image);
         }
 

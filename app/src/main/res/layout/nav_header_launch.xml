@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     >
     <ImageView
+        android:id="@+id/navBG"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:src="@drawable/abc"
         android:scaleType="centerCrop"/>
 <LinearLayout
     android:layout_width="match_parent"
@@ -44,18 +44,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:weightSum="2">
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal" />
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"/>
 
     </LinearLayout>

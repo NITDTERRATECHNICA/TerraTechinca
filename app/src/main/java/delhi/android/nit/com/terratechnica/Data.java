@@ -1,0 +1,202 @@
+package delhi.android.nit.com.terratechnica;
+
+/**
+ * Created by Manojit Paul on 3/15/2017.
+ */
+
+public class Data {
+    static String[] codingEvents = {
+            "Nitd Programming League",
+            "Reverse Coding",
+            "Clash of Codes",
+            "Hackathon",
+            "Untangle the Tangle",
+            "Capture the Flag"
+    };
+    static String[] codingDesp = {
+            "“Talk is cheap. Show me the code”\n" +
+                    "\n" +
+                    "Linus Torvalds minced no words while he made that statement. For those who think themselves as the\n" +
+                    "\n" +
+                    "problem solvers and all the code freaks out there, Terra Technica’17 is back with a platform for you to prove\n" +
+                    "\n" +
+                    "your mettle. This could be the event that gives you that confidence to code which could change your life\n" +
+                    "\n" +
+                    "forever.",
+            "Think you know everything about programming? Well there are many ways to go, let’s see which one you\n" +
+                    "\n" +
+                    "pick. This event looks for the real star that stands up to the ability of creativity and logic. So, be ready to storm\n" +
+                    "\n" +
+                    "out not just by switching systems but switching your brains into the all new arena.",
+            "Outwit, outplay, outlast\n" +
+                    "\n" +
+                    "Get ready for your chance to glory, where you would have to unleash your coding skills but, you would win\n" +
+                    "\n" +
+                    "only if you outlast your competitors.\n" +
+                    "\n" +
+                    "It’s an opportunity to boast your coding skills, but you can’t entirely rely on them…..\n" +
+                    "\n" +
+                    "May the odds always be in your favour.",
+            "Hackathon is an onsite mobile app building competition where we give you an opportunity to design and\n" +
+                    "\n" +
+                    "develop your own mobile or even web app, show off your skills to win the battle and be the master of web\n" +
+                    "\n" +
+                    "world.",
+            "Whizzing through the land of maths and science , this event will take you through the world of deciphers,\n" +
+                    "\n" +
+                    "while testing your basic fundamental maths and science skills every step of the way.",
+            "CTF is an event which provides a platform for participants to work out on real world scenarios\n" +
+                    "\n" +
+                    "like malware analysis \u200B¸pentesting , system administration. \u200B The game is played in team of four\n" +
+                    "\n" +
+                    "players where each team is provided with a real world scenario along with an system where they\n" +
+                    "\n" +
+                    "need to seek out a solution which promotes next level. Each level is associated with different\n" +
+                    "\n" +
+                    "kind of scenario of increasing difficulty. This allows the participants to apply various concepts\n" +
+                    "\n" +
+                    "and techniques to reach a solution. The game is entirely based on Command line interface. The team is given\n" +
+                    "\n" +
+                    "secured access to a system to analyze, execute instructions to find the flag. The games assumes players to\n" +
+                    "\n" +
+                    "have knowledge in computer engineering such as files, networking, various tools of system administration.\n" +
+                    "\n" +
+                    "The game duration is estimated to be around 3hrs."
+    };
+
+    static String[] codingPics = {
+            "http://insigniathefest.com/manojit/nitpl.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg",
+            "http://insigniathefest.com/manojit/clashofcode.jpg",
+            "http://insigniathefest.com/manojit/hackathon.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg"
+    };
+    static String[] roboEvent = {
+            "RoboWars",
+            "DEATH RACE",
+            "Robosoccer",
+            "CodEmb",
+            "Puck Collect",
+            "Design and Innovation event",
+            "MAZE RUNNER",
+            "ROBO RUMBLE"
+    };
+
+    static String[] RoboPics = {
+            "http://insigniathefest.com/manojit/robowars.jpg",
+            "http://insigniathefest.com/manojit/deathrace.jpg",
+            "http://insigniathefest.com/manojit/robosoccer.jpg",
+            "http://insigniathefest.com/manojit/codemb.jpg",
+            "http://insigniathefest.com/manojit/puckcollect.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg"
+    };
+
+    static String[] roboDesp = {
+            "To design and construct a remote controlled robot capable of fighting a one on one tournament/Robowar",
+            "For all RC car lovers, we provide a big platform to prove themselves champion amongst best RC Car drivers. If\n" +
+                    "\n" +
+                    "you love RC cars and have excellence in driving cars then drive through the toughest path filled up by high\n" +
+                    "\n" +
+                    "bumps, sharpest turns and high ramps to fly you in air and grab huge prizes.",
+            "Robo soccer confronts the sheer and intensified tryst of the football lovers with robomaniacs. The love for the\n" +
+                    "\n" +
+                    "game just got technically amplified with the circuits and steel fighting for the precious prize. Infiltrate your\n" +
+                    "\n" +
+                    "robot with the soccer skill;it just might be the striker you need.",
+            "Have always been dwelling over the complexity of circuits and computer programs? Catch the current,\n" +
+                    "\n" +
+                    "vanquish the voltage. Walk through the chaos of electrical sophistication, coding skills and emerge as the\n" +
+                    "\n" +
+                    "winner. Solve the toughest circuits and come up with their practicality. Invoke, implement, innovate, initialise.\n" +
+                    "\n" +
+                    "It’s never always been the Transformers – CodEmb",
+            "Terra technica’17 is back with its dais ready for young and ardent minds to exhibit their innovation in\n" +
+                    "\n" +
+                    "designing and to prove their mettle in the RIDE under technology.\n" +
+                    "\n" +
+                    "Let’s not waste any more time in awaiting the opportunity, just get busy in availing it. Enter the field of robo-\n" +
+                    "\n" +
+                    "mech war, with your bots ready to collect their assigned pucks and leave the place with excitement of\n" +
+                    "\n" +
+                    "triumph over opponents.\n" +
+                    "\n" +
+                    "Come … conquer &amp; savour victory!!",
+            "",
+            "“If you&#39;re going to decipher a hidden code from a complex set of different mazes, I&#39;m pretty sure you need a\n" +
+                    "\n" +
+                    "sherlock&#39;s brain running the show.”",
+            "Walking on walls has always been fascinating. Calm down, there isn&#39;t any trespassing and stealing here.\n" +
+                    "\n" +
+                    "Destroy the walls of your thoughts to see your creation treading on the vertical. Race up with other bots and\n" +
+                    "\n" +
+                    "score the basket in the fastest time. Defy gravity; it pulls down all. Vertical is the new horizontal, the\n" +
+                    "\n" +
+                    "Escalades."
+    };
+    static String[] onlineEvent = {
+            "VIRTUAL STOCK MARKET",
+            "INNOVATICA",
+            "TYPOTUDE",
+    };
+    static String[] onlinePics = {
+            "http://insigniathefest.com/manojit/virtual.jpg",
+            "http://insigniathefest.com/manojit/innovatica.jpg",
+            "http://insigniathefest.com/manojit/typotude.jpg",
+    };
+    static String[] onlineDesp = {
+            "Always cherished striking gold, trading at Dalal Street/Nasdaq? Think you can grab opportunities and make\n" +
+                    "\n" +
+                    "most of out of the dynamic stock market? Are you that smart investor who can buy right and sell right? Do\n" +
+                    "\n" +
+                    "you believe that the Stock Market is where you belong? BRACE YOURSELF.\n" +
+                    "\n" +
+                    "Here comes the simulation of it i.e. VIRTUAL STOCK MARKET game presented by TerraTechnica in\n" +
+                    "\n" +
+                    "association with MoneyPot. It is an exciting opportunity to show your investment skills and win prizes by\n" +
+                    "\n" +
+                    "playing this game.",
+            "&quot;Innovation is seeing what everybody has seen and thinking what nobody has thought&quot;\n" +
+                    "\n" +
+                    "- Dr. Albert Szent Gyorgyi\n" +
+                    "\n" +
+                    "Terra Technica 2k17, the annual Tech Fest of NIT Delhi, in association with Tech Club, NIT Delhi presents\n" +
+                    "\n" +
+                    "INNOVATICA, an online event where each person has to present a unique innovative idea and how that idea\n" +
+                    "\n" +
+                    "will make our lives better.",
+            ""
+    };
+
+    static String[] MiscEvent = {
+            "NITD Expo",
+            "Youth Parliament",
+            "ProbabilityMadeEasy"
+    };
+
+    static String[] MiscPics = {
+            "http://insigniathefest.com/manojit/nitdexpo.jpg",
+            "http://insigniathefest.com/manojit/youth.jpg",
+            "http://insigniathefest.com/manojit/typotude.jpg"
+    };
+
+    static String[] MiscDesp = {
+            "We are proud to announce the NITDeXpo, TerraTechnica’s major technology and prototype exhibition.\n" +
+                    "\n" +
+                    "Commemorating on 23rd of March 2017, TerraTechnica is set to be bigger than ever. This document will act\n" +
+                    "\n" +
+                    "as a guide for you to participate, excel with and and showcase your prototype on a National Stage.",
+            "Delegates of various colleges will be given various agendas on a specified topic. A healthy\n" +
+                    "\n" +
+                    "discussion under the supervision of the panel of judges is expected. Later, the panel decides the winners. The\n" +
+                    "\n" +
+                    "exact agenda and format will be disclosed 3/4 weeks before the event day.",
+            "This event consist of a workshop and a competition. Workshop is about solving\n" +
+                    "\n" +
+                    "quizzes using basic concepts of probability. Concepts of probability will be thoroughly discussed.\n" +
+                    "\n" +
+                    "The second part of the event is a competition comprising of solving 5 general quizzes."
+    };
+}

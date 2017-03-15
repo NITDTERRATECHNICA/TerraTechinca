@@ -2,11 +2,16 @@ package delhi.android.nit.com.terratechnica;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.graphics.Palette;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
@@ -19,9 +24,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 
 /**
@@ -85,7 +93,7 @@ public class Event_Main extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvEvent = (RecyclerView) view.findViewById(R.id.rvEvent);
-        rvEvent.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvEvent.setLayoutManager(new GridLayoutManager(getContext(),2));
         rvEvent.setAdapter(new Adater());
 
     }
@@ -101,18 +109,30 @@ public class Event_Main extends Fragment {
             Holder holder = new Holder(view);
             return holder;
         }
-
+//        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
+//            @Override
+//            public void onGenerated(Palette palette) {
+//                try{
+//                    holder.back.setBackgroundColor(palette.getVibrantSwatch().getRgb());
+//                    holder.titleDesp.setTextColor(palette.getVibrantSwatch().getTitleTextColor());
+//                    holder.textView2.setTextColor(palette.getVibrantSwatch().getTitleTextColor());
+//                }catch(Exception e){
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
         @Override
-        public void onBindViewHolder(Holder holder, int position) {
+        public void onBindViewHolder(final Holder holder, int position) {
             if(mParam1 == 1) {
-                holder.textView2.setText("Event"+position);
-                holder.titleDesp.setText("(" + "Event Description" + ")");
+                holder.textView2.setText(Data.codingEvents[position]);
+                holder.titleDesp.setText("(" + "Coding Event" + ")");
+                //Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/asdfgh");
                 Picasso.with(getContext())
-                        .load(R.drawable.asdfgh)
-                        .error(R.drawable.asd)
-                        .resize(700,700)
-                        .placeholder(R.drawable.asd)
+                        .load(Data.codingPics[position])
+                        .resize(500,500)
+                        .centerCrop()
                         .into(holder.imageView2);
+
             }else{
                 Picasso.with(getContext())
                         .load(R.drawable.asdfgh)
@@ -125,9 +145,9 @@ public class Event_Main extends Fragment {
         @Override
         public int getItemCount() {
             if(mParam1 == 1)
-                return 11;
+                return 6;
             else
-                return 5;
+                return 6;
         }
     }
 
@@ -135,11 +155,13 @@ public class Event_Main extends Fragment {
     private class Holder extends RecyclerView.ViewHolder{
         ImageView imageView2;
         TextView textView2,titleDesp,despDesp;
+        LinearLayout back;
         public Holder(final View itemView) {
             super(itemView);
             imageView2 = (ImageView) itemView.findViewById(R.id.imageView2);
             textView2 = (TextView) itemView.findViewById(R.id.textView2);
             titleDesp = (TextView) itemView.findViewById(R.id.textView5);
+            back = (LinearLayout) itemView.findViewById(R.id.back);
 
             itemView.setOnClickListener(
                     new View.OnClickListener() {
@@ -150,15 +172,15 @@ public class Event_Main extends Fragment {
                                 //imageResId = image[recyclerView1.getChildAdapterPosition(itemView)];
                                 //Log.e("Manojit",""+recyclerView1.getChildAdapterPosition(itemView));
                                 Intent intent = new Intent(getActivity(),Event_Description.class);
-                                intent.putExtra("data",rvEvent.getChildAdapterPosition(itemView));
-                                intent.putExtra("mParam1",mParam1);
+                                intent.putExtra("position",rvEvent.getChildAdapterPosition(itemView));
+                                intent.putExtra("type","coding");
                                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),imageView2,imageView2.getTransitionName());
                                 startActivity(intent,activityOptionsCompat.toBundle());
                             }
                             else{
                                 Intent intent = new Intent(getActivity(),Event_Description.class);
-                                intent.putExtra("data",rvEvent.getChildAdapterPosition(itemView));
-                                intent.putExtra("mParam1",mParam1);
+                                intent.putExtra("position",rvEvent.getChildAdapterPosition(itemView));
+                                intent.putExtra("type","coding");
                                 startActivity(intent);
                             }
                         }

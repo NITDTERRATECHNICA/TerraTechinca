@@ -9,7 +9,16 @@
     tools:context="delhi.android.nit.com.terratechnica.LaunchActivity"
     tools:showIn="@layout/app_bar_launch">
 
+    <ImageView
+        android:id="@+id/launchBG"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
 
     <FrameLayout
         android:id="@+id/contentContainer"
@@ -18,16 +27,24 @@
         android:layout_above="@+id/bottomBar" />
 
     <com.roughike.bottombar.BottomBar
-        android:background="#ffffff"
         android:id="@+id/bottomBar"
-        app:bb_activeTabColor="#ff5722"
-        app:bb_inActiveTabColor="#292929"
+        app:bb_activeTabColor="#0088fe"
+        app:bb_inActiveTabColor="#000000"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/tabs" />
 
-
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/nav"
+        android:onClick="navigate"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/imageView" />
 
 
 </RelativeLayout>

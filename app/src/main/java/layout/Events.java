@@ -13,7 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import delhi.android.nit.com.terratechnica.Event_Main;
+import delhi.android.nit.com.terratechnica.Misc_Fragment;
+import delhi.android.nit.com.terratechnica.Online_Fragment;
 import delhi.android.nit.com.terratechnica.R;
+import delhi.android.nit.com.terratechnica.Robotics_Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,31 +61,38 @@ public class Events extends Fragment {
             }
             if (position == 1)
             {
-                fragment = new InformalEvent();
+                fragment = Robotics_Fragment.newInstance(1);
             }
             if (position == 2)
             {
-
+                fragment = Online_Fragment.newInstance(1);
+            }
+            if(position == 3)
+            {
+                fragment = Misc_Fragment.newInstance(1);
             }
             return fragment;
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             String title = new String();
             if (position == 0) {
-                title = "Formal Events";
+                title = "Coding";
             }
             if (position == 1) {
-                title = "Informal Events";
+                title = "Robotics";
             }
             if (position == 2) {
-                title = "Artist";
+                title = "Online";
+            }
+            if (position == 3) {
+                title = "Misc";
             }
             return title;
         }

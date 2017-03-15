@@ -3,170 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_about__us"
-    android:background="#f4f4f4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:id="@+id/scrview"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="vertical" android:layout_width="match_parent"
             android:paddingTop="10dp"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/about_cardview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/image_logo"
-                android:layout_centerInParent="true"
-                app:cardElevation="3dp"
-                app:cardUseCompatPadding="true">
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#f4f4f4"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/about"
-                            android:gravity="center"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/image_logo"
-                            android:layout_gravity="center"
-                            android:layout_margin="5dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Manifesting the opportunities of technology and innovation, and prioritising the need to extend the same, the National Institute of Technology Delhi inherently presents its first technical festival, the TerraTechnica’17. Conveying the sole motivation of continuous and cumulative importance of technology and its attributes in the developing scenario of the nation, TerraTechnica’17 tends to strengthen the role of engineering applications and its utilisation. The fest renders the bright minds of the country an opportunistic potential to evolve their technical skills, combined with the notion of emerging at the pole position in the competitive environments. It enunciates itself as the learning grounds for proper conceptual vision, developmental ideas, establishing a foreground for technical and engineering applications, and their achievability. In addition, TerraTechnica’17 also prioritises the absolute growth of the visual modality of the participants to intensify the scope of nurturing. An inspiration amalgamating with the spark of an idea embarks the inception of the new technology – TerraTechnica’17 (the clique of techies). "
-                            android:textColor="#262626"
-                            android:textSize="20sp"
-                            android:textStyle="normal|bold" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="#262626"
-                            ></View>
-
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/about"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal">
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_gravity="center"
-                                android:layout_height="40dp"
-                                android:background="#262626"/>
-
-                            <ImageView
-                                android:id="@+id/ABfb"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_margin="10dp"
-                                android:src="@drawable/fb"
-                                android:clickable="true" />
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_gravity="center"
-                                android:layout_height="40dp"
-                                android:background="#262626"/>
-
-                            <ImageView
-                                android:id="@+id/AByou"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_margin="10dp"
-
-                                android:src="@drawable/youtube" />
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_gravity="center"
-                                android:layout_height="40dp"
-                                android:background="#262626"/>
-
-
-                            <ImageView
-                                android:id="@+id/ABinst"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:layout_margin="10dp"
-
-                                android:src="@drawable/inst" />
-                            <View
-                                android:layout_width="2dp"
-                                android:layout_gravity="center"
-                                android:layout_height="40dp"
-                                android:background="#262626"/>
-
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:background="#262626"
-                            ></View>
-                    </LinearLayout>
-                </ScrollView>
-            </android.support.v7.widget.CardView>
-
-            <View
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/tvAb"
-                android:layout_width="3dp"
-                android:layout_height="30dp"
-                android:background="#262626"
-                android:layout_marginBottom="10dp"/>
-            <View
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/tvAb"
-                android:layout_width="3dp"
-                android:layout_height="30dp"
-                android:background="#262626"
-                android:layout_marginBottom="10dp"/>
-            <View
-                android:id="@+id/vAB"
-                android:layout_width="match_parent"
-                android:layout_height="3dp"
-                android:background="#262626"
-                android:layout_below="@+id/tvAb"
-                android:layout_marginBottom="10dp"/>
-
             <ImageView
-                android:layout_below="@+id/vAB"
                 android:id="@+id/image_logo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:layout_scrollFlags="scroll|enterAlways"
                 android:layout_centerHorizontal="true"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/about_text"
+                android:layout_below="@id/image_logo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvAb"
-                android:text="TerraTechnica"
-                android:textColor="#262626"
-                android:typeface="sans"
                 android:gravity="center"
-                android:textSize="30sp"
-                android:textStyle="normal|bold"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:padding="15dp"
+                android:text="Manifesting the opportunities of technology and innovation, and prioritising the need to extend the same, the National Institute of Technology Delhi inherently presents its first technical festival, the TerraTechnica’17. Conveying the sole motivation of continuous and cumulative importance of technology and its attributes in the developing scenario of the nation, TerraTechnica’17 tends to strengthen the role of engineering applications and its utilisation. The fest renders the bright minds of the country an opportunistic potential to evolve their technical skills, combined with the notion of emerging at the pole position in the competitive environments. It enunciates itself as the learning grounds for proper conceptual vision, developmental ideas, establishing a foreground for technical and engineering applications, and their achievability. In addition, TerraTechnica’17 also prioritises the absolute growth of the visual modality of the participants to intensify the scope of nurturing. An inspiration amalgamating with the spark of an idea embarks the incept"/>
+
+            <LinearLayout
+                android:layout_below="@id/about_text"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/fb"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/inst"
+                    android:layout_marginRight="10dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/youtube"/>
+            </LinearLayout>
+
         </RelativeLayout>
     </ScrollView>
 

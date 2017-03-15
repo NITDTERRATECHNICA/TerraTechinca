@@ -1,6 +1,7 @@
 package delhi.android.nit.com.terratechnica;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,9 +34,9 @@ public class About_Us extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         image_logo = (ImageView) view.findViewById(R.id.image_logo);
+        Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/logo2");
         Picasso.with(getContext())
-                .load(R.drawable.logo)
-                .resize(400,200)
+                .load(uri)
                 .into(image_logo);
     }
 }

@@ -239,7 +239,7 @@ public class insta extends Fragment {
 
                                 }
                                 getActivity().getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.contentContainer,largePicture,"Hello")
+                                        .replace(R.id.container,largePicture,"Hello")
                                         .addSharedElement(image1,"largePic")
                                         .addToBackStack("")
                                         .commit();
