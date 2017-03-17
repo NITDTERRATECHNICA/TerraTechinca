@@ -41,14 +41,10 @@ public class Event_Description extends AppCompatActivity {
 
             Transition transition =  TransitionInflater.from(this).inflateTransition(R.transition.transition);
             getWindow().setSharedElementEnterTransition(transition);
-            /*Slide slide = new Slide(Gravity.RIGHT);
-            slide.setStartDelay(300);
-            slide.setDuration(300);*/
 
             Slide fade1 = new Slide(Gravity.LEFT);
             fade1.excludeTarget(android.R.id.navigationBarBackground,true);
             fade1.excludeTarget(android.R.id.statusBarBackground,true);
-            //fade1.excludeTarget(R.id.appbar,true);
             fade1.setStartDelay(300);
             fade1.setDuration(300);
             getWindow().setEnterTransition(fade1);
@@ -58,14 +54,10 @@ public class Event_Description extends AppCompatActivity {
             fade.excludeTarget(android.R.id.navigationBarBackground,true);
             fade.excludeTarget(android.R.id.statusBarBackground,true);
             getWindow().setReturnTransition(fade);
-            //getWindow().setReenterTransition(null);
-            //getWindow().setExitTransition(null);
 
         }
 
         setContentView(R.layout.activity_event__description);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         position = getIntent().getIntExtra("position",0);
         type = getIntent().getStringExtra("type");

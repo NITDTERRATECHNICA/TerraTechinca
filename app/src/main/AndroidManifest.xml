@@ -14,7 +14,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".MyApplication"
+        android:name=".Application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,12 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".LaunchActivity"
-            android:label="@string/title_activity_launch"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,10 +34,6 @@
         <activity
             android:name=".Event_Description"
             android:label="@string/title_activity_event__description"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Instagram"
-            android:label="@string/title_activity_instagram"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!--
@@ -56,7 +48,7 @@
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
         <activity
-            android:name=".MapsActivity"
+            android:name=".Maps.MapsActivity"
             android:label="@string/title_activity_maps"></activity>
     </application>
 

@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="a7a333ca8edc10e6576a0cbd9c41b0528cc2af64">
+        sha1="159dcb17a63a10b68f025c68be470c50dd4db5e2">
         <dex dex="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_485537bf8931ef2e65e8ca2e00ff55c2fd05a7a6\classes.dex" />
     </item>
     <item
@@ -156,21 +156,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
-        <dex dex="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.0_0aea2bdd90dd47c9deeabb2270cbdf8ba4a7e8bd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
         <dex dex="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.3.0_6af2edeb95699b69bfd99e233277acd39b69bd77\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.0_0aea2bdd90dd47c9deeabb2270cbdf8ba4a7e8bd\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -322,7 +322,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="58cac9ec22e9b181b80ed5b2437c7ed29dc2df38">
+        sha1="d46b77ae41562c629108c487a333d550676d5d93">
         <dex dex="C:\Users\Manojit Paul\Desktop\TerraTechinca\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_a4264580923dfe7d1b2472445f77d5102188c6c7\classes.dex" />
     </item>
     <item

@@ -49,19 +49,16 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/fb"
-                    android:onClick="fb"/>
+                    android:src="@drawable/fb"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/inst"
-                    android:layout_marginRight="10dp"
-                    android:onClick="insta"/>
+                    android:layout_marginRight="10dp"/>
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/youtube"
-                    android:onClick="yout"/>
+                    android:src="@drawable/youtube"/>
             </LinearLayout>
 
 

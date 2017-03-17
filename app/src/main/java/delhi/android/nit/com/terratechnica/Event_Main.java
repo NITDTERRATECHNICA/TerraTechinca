@@ -40,11 +40,9 @@ public class Event_Main extends Fragment {
 
 
     public Event_Main() {
-        // Required empty public constructor
     }
     private static final String ARG_PARAM1 = "param1";
     private int mParam1;
-    //String IMAGE_LINK = "http://saptrangnitd.com/beta1/ap/images/";
 
 
     public static Event_Main newInstance(int param1) {
@@ -68,12 +66,8 @@ public class Event_Main extends Fragment {
             getActivity().getWindow().setExitTransition(new Fade());
             Transition transition1 =  TransitionInflater.from(getActivity()).inflateTransition(R.transition.transition);
             transition1.excludeTarget(android.R.id.navigationBarBackground,true);
-            //transition1.setStartDelay(1000);
             getActivity().getWindow().setSharedElementExitTransition(transition1);
             getActivity().getWindow().setReenterTransition(new Fade());
-            /*Explode explode1 = new Explode();
-            explode1.setDuration(700);
-            getActivity().getWindow().setExitTransition(explode1);*/
         }
 
         if (getArguments() != null) {
@@ -110,23 +104,10 @@ public class Event_Main extends Fragment {
             Holder holder = new Holder(view);
             return holder;
         }
-//        Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
-//            @Override
-//            public void onGenerated(Palette palette) {
-//                try{
-//                    holder.back.setBackgroundColor(palette.getVibrantSwatch().getRgb());
-//                    holder.titleDesp.setTextColor(palette.getVibrantSwatch().getTitleTextColor());
-//                    holder.textView2.setTextColor(palette.getVibrantSwatch().getTitleTextColor());
-//                }catch(Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
         @Override
         public void onBindViewHolder(final Holder holder, int position) {
             if(mParam1 == 1) {
                 holder.textView2.setText(Data.codingEvents[position]);
-                //Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/asdfgh");
                 Picasso.with(getContext())
                         .load(Data.codingPics[position])
                         .resize(500,500)
@@ -135,7 +116,7 @@ public class Event_Main extends Fragment {
 
             }else{
                 Picasso.with(getContext())
-                        .load(R.drawable.asdfgh)
+                        .load(R.drawable.asd)
                         .resize(700,700)
                         .into(holder.imageView2);
             }

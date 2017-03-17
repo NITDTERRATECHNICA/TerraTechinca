@@ -31,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Manojit Paul"
+        android:textColor="#ffffff"
+        android:text="user"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
@@ -39,7 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="manojitp4@gmail.com" />
+        android:textColor="#ffffff"
+        android:text="user@email.com" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,27 +50,30 @@
         android:weightSum="2">
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"
+            android:layout_marginRight="3dp"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal" />
 
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
+        <Button
+            android:id="@+id/signinButton"
+            android:layout_marginLeft="3dp"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:visibility="visible"
-            />
+            android:background="@drawable/google_in"
+            android:visibility="visible"/>
         <Button
             android:id="@+id/logoutButton"
+            android:layout_marginLeft="3dp"
             android:layout_width="0dp"
-            android:layout_height="27dp"
+            android:layout_height="30dp"
             android:layout_weight="1"
-            android:text="Log-Out"
-            android:textColor="#ffffff"
-            android:background="#c10000"
+            android:background="@drawable/google_out"
             android:visibility="gone"/>
+
+
 
 
 

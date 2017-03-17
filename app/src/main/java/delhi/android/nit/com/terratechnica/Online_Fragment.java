@@ -1,17 +1,19 @@
 package delhi.android.nit.com.terratechnica;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
-import android.support.v7.graphics.Palette;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Explode;
 import android.transition.Fade;
@@ -26,8 +28,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Online_Fragment extends Fragment {
@@ -60,12 +65,8 @@ public class Online_Fragment extends Fragment {
             getActivity().getWindow().setExitTransition(new Fade());
             Transition transition1 =  TransitionInflater.from(getActivity()).inflateTransition(R.transition.transition);
             transition1.excludeTarget(android.R.id.navigationBarBackground,true);
-            //transition1.setStartDelay(1000);
             getActivity().getWindow().setSharedElementExitTransition(transition1);
             getActivity().getWindow().setReenterTransition(new Fade());
-            /*Explode explode1 = new Explode();
-            explode1.setDuration(700);
-            getActivity().getWindow().setExitTransition(explode1);*/
         }
 
         if (getArguments() != null) {
@@ -106,7 +107,6 @@ public class Online_Fragment extends Fragment {
         public void onBindViewHolder(final Holder holder, int position) {
             if(mParam1 == 1) {
                 holder.textView2.setText(Data.onlineEvent[position]);
-                //Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/asdfgh");
                 Picasso.with(getContext())
                         .load(Data.onlinePics[position])
                         .resize(500,500)
@@ -114,7 +114,7 @@ public class Online_Fragment extends Fragment {
                         .into(holder.imageView2);
             }else{
                 Picasso.with(getContext())
-                        .load(R.drawable.asdfgh)
+                        .load(R.drawable.asd)
                         .resize(700,700)
                         .into(holder.imageView2);
             }
@@ -166,6 +166,13 @@ public class Online_Fragment extends Fragment {
             );
         }
     }
+
+
+    /**
+     * Created by Directioner on 3/16/2017.
+     */
+
+
 
 
 }

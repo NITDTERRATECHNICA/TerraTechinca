@@ -1,7 +1,6 @@
 package delhi.android.nit.com.terratechnica;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,8 +12,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -23,9 +21,7 @@ import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -52,7 +48,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.Scopes;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
@@ -60,7 +55,6 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.squareup.picasso.Picasso;
 
@@ -81,14 +75,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Arrays;
 
-import layout.Contact_Us;
-import layout.Events;
+import delhi.android.nit.com.terratechnica.About_Us.About_Us;
+import delhi.android.nit.com.terratechnica.Contact.Contact_Us;
+import delhi.android.nit.com.terratechnica.InstaGram.insta;
+import delhi.android.nit.com.terratechnica.Sponsor.Sponsor;
 
 public class LaunchActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,GoogleApiClient.OnConnectionFailedListener ,Dialog.callback{
 
     private TextView info;
-    SignInButton signInButton;
+    Button signinButton;
     private LoginButton loginButton;
     View header;
     private CallbackManager callbackManager;
@@ -178,9 +174,6 @@ public class LaunchActivity extends AppCompatActivity
 
 
             setContentView(R.layout.activity_launch);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//        toolbar.setTitle("TERRA TECHNICA");
             launchBG = (ImageView) findViewById(R.id.launchBG);
             Glide.with(this)
                     .load(R.drawable.bg2)
@@ -189,10 +182,6 @@ public class LaunchActivity extends AppCompatActivity
                     .into(launchBG);
 
             drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-       /* ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();*/
 
             contentContainer = (FrameLayout) findViewById(R.id.contentContainer);
 
@@ -211,7 +200,7 @@ public class LaunchActivity extends AppCompatActivity
                                     new ResultCallback<Status>() {
                                         @Override
                                         public void onResult(Status status) {
-                                            signInButton.setVisibility(View.VISIBLE);
+                                            signinButton.setVisibility(View.VISIBLE);
                                             logoutButton.setVisibility(View.GONE);
                                             SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                                             SharedPreferences.Editor editor = sharedPreferences2.edit();
@@ -229,8 +218,10 @@ public class LaunchActivity extends AppCompatActivity
                     }
             );
             SharedPreferences sharedPreferences1 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            if(sharedPreferences.contains("name"))
+            Log.e("Manojit",""+sharedPreferences1.contains("name"));
+            if(sharedPreferences1.contains("name"))
             {
+                Log.e("Manojit",""+sharedPreferences1.getString("name",""));
                 navname.setText(sharedPreferences1.getString("name",""));
                 navEmail.setText(sharedPreferences1.getString("email",""));
                 Picasso.with(this)
@@ -267,12 +258,10 @@ public class LaunchActivity extends AppCompatActivity
 
                 @Override
                 public void onCancel() {
-                    //info.setText("Login attempt canceled.");
                 }
 
                 @Override
                 public void onError(FacebookException e) {
-                    //info.setText("Login attempt failed.");
                 }
             });
 
@@ -331,8 +320,8 @@ public class LaunchActivity extends AppCompatActivity
                     .addApi(Plus.API)
                     .build();
 
-            signInButton = (SignInButton) header.findViewById(R.id.sign_in_button);
-            signInButton.setOnClickListener(
+            signinButton = (Button) header.findViewById(R.id.signinButton);
+            signinButton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -346,8 +335,6 @@ public class LaunchActivity extends AppCompatActivity
 
             final BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
             bottomBar.setDefaultTab(R.id.tab_about_us);
-            //current = R.id.tab_about_us;
-            //final BottomBarTab barTab = bottomBar.getCurrentTab();
             bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
                 @Override
                 public void onTabSelected(@IdRes int tabId) {
@@ -358,7 +345,6 @@ public class LaunchActivity extends AppCompatActivity
                         }
                         fragmentTransaction.add(R.id.contentContainer, new About_Us());
                         fragmentTransaction.commit();
-                        //current = bottomBar.getCurrentTabId();
                     } else if (tabId == R.id.tab_contact) {
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
@@ -366,7 +352,6 @@ public class LaunchActivity extends AppCompatActivity
                         }
                         fragmentTransaction.add(R.id.contentContainer, new Contact_Us());
                         fragmentTransaction.commit();
-                        //current = bottomBar.getCurrentTabId();
 
                     } else if (tabId == R.id.tab_events) {
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -375,7 +360,6 @@ public class LaunchActivity extends AppCompatActivity
                         }
                         fragmentTransaction.add(R.id.contentContainer, new Events());
                         fragmentTransaction.commit();
-                        //current = bottomBar.getCurrentTabId();
                     } else if (tabId == R.id.tab_instagram) {
                         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
@@ -383,7 +367,6 @@ public class LaunchActivity extends AppCompatActivity
                         }
                         fragmentTransaction.add(R.id.contentContainer, new insta());
                         fragmentTransaction.commit();
-                        //current = bottomBar.getCurrentTabId();
                     }
 
                 }
@@ -394,7 +377,7 @@ public class LaunchActivity extends AppCompatActivity
     String name;
     Uri uri;
     String email;
-    String gender;
+    String gender = "unknown";
     public void layoutUpdater(AccessToken accessToken,Profile profile)
     {
         Log.e("Manojit", "" + profile.getName());
@@ -456,9 +439,6 @@ public class LaunchActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onPause();
-        Log.e("Manojit","Stop");
-        //accessTokenTracker.stopTracking();
-       // profileTracker.stopTracking();
     }
 
     public void login(View v){
@@ -502,9 +482,8 @@ public class LaunchActivity extends AppCompatActivity
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
-        //Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
-            signInButton.setVisibility(View.GONE);
+            signinButton.setVisibility(View.GONE);
             logoutButton.setVisibility(View.VISIBLE);
             String gende = "";
             // Signed in successfully, show authenticated UI.
@@ -516,7 +495,7 @@ public class LaunchActivity extends AppCompatActivity
 
                 if (person != null) {
                     gende = jsonObject.getString("gender");
-                    Log.e("Manojit",gender+" hello   "+person);
+                    Log.e("Manojit",gende+" hello   "+person);
                 }
             }catch (Exception e){
                 e.printStackTrace();
@@ -531,8 +510,9 @@ public class LaunchActivity extends AppCompatActivity
             SharedPreferences.Editor editor = sharedPreferences.edit();
             name = acct.getDisplayName();
             email = acct.getEmail();
+            gender = "unknown";
             gender = ""+gende;
-            editor.putString("gender",gende);
+            editor.putString("gender",gender);
             editor.putString("name",acct.getDisplayName());
             editor.putString("email",acct.getEmail());
             editor.putString("uri",acct.getPhotoUrl().toString());
@@ -540,8 +520,6 @@ public class LaunchActivity extends AppCompatActivity
             Dialog dialog = new Dialog();
             dialog.show(getFragmentManager(),"google");
         } else {
-            // Signed out, show unauthenticated UI.
-            //updateUI(false);
         }
     }
 
@@ -559,7 +537,6 @@ public class LaunchActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.launch, menu);
         return true;
     }
@@ -590,10 +567,13 @@ public class LaunchActivity extends AppCompatActivity
         if (id == R.id.location) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Fragment fragment = new Sponsor();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container,fragment)
+                    .addToBackStack(null)
+                    .commit();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        }  else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 

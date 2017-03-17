@@ -61,12 +61,8 @@ public class Misc_Fragment extends Fragment {
             getActivity().getWindow().setExitTransition(new Fade());
             Transition transition1 =  TransitionInflater.from(getActivity()).inflateTransition(R.transition.transition);
             transition1.excludeTarget(android.R.id.navigationBarBackground,true);
-            //transition1.setStartDelay(1000);
             getActivity().getWindow().setSharedElementExitTransition(transition1);
             getActivity().getWindow().setReenterTransition(new Fade());
-            /*Explode explode1 = new Explode();
-            explode1.setDuration(700);
-            getActivity().getWindow().setExitTransition(explode1);*/
         }
 
         if (getArguments() != null) {
@@ -86,7 +82,7 @@ public class Misc_Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         rvEvent = (RecyclerView) view.findViewById(R.id.rvEvent);
-        rvEvent.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvEvent.setLayoutManager(new GridLayoutManager(getContext(),2));
         rvEvent.setAdapter(new Adater());
 
     }
@@ -98,7 +94,7 @@ public class Misc_Fragment extends Fragment {
 
         @Override
         public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.robotics_custom,parent,false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_view1,parent,false);
             Holder holder = new Holder(view);
             return holder;
         }
@@ -107,7 +103,6 @@ public class Misc_Fragment extends Fragment {
         public void onBindViewHolder(final Holder holder, int position) {
             if(mParam1 == 1) {
                 holder.textView2.setText(Data.MiscEvent[position]);
-                //Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/asdfgh");
                 Picasso.with(getContext())
                         .load(Data.MiscPics[position])
                         .resize(500,500)
@@ -115,7 +110,7 @@ public class Misc_Fragment extends Fragment {
                         .into(holder.imageView2);
             }else{
                 Picasso.with(getContext())
-                        .load(R.drawable.asdfgh)
+                        .load(R.drawable.asd)
                         .resize(700,700)
                         .into(holder.imageView2);
             }

@@ -2,7 +2,7 @@
 <tabs>
     <tab
         id="@+id/tab_about_us"
-        icon="@drawable/about"
+        icon="@drawable/home"
         title="About"/>
     <tab
         id="@+id/tab_events"
