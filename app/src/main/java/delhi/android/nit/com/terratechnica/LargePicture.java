@@ -38,7 +38,6 @@ public class LargePicture extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         imageView = (ImageView) view.findViewById(R.id.largeIV);
-        button = (Button) view.findViewById(R.id.downloadB);
         Picasso.with(getContext())
                 .load(link)
                 .into(imageView);

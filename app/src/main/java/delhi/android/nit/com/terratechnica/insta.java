@@ -60,7 +60,7 @@ public class insta extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         galleryRV = (RecyclerView) view.findViewById(R.id.galleryRV);
-        galleryRV.setLayoutManager(new GridLayoutManager(getContext(), 3));
+        galleryRV.setLayoutManager(new GridLayoutManager(getContext(),2));
         progressBar = (ProgressBar) view.findViewById(R.id.prog);
         if (isOnline()) {
             new Background().execute();
@@ -132,7 +132,7 @@ public class insta extends Fragment {
                 Log.d("After", jo6.getString("url"));
                 standard.put(String.valueOf(i), jo6.getString("url"));
                 Log.d("After", jo5.getString("url"));
-                setofFlowers.add(new Images(jo5.getString("url"), jo6.getString("url")));
+                setofFlowers.add(new Images(jo4.getString("url"), jo6.getString("url")));
             }
             //HERE LOAD IMAGES IN PICASO VIA ANYONE OF low,thumb,standard JSON OBjects. They represent quality of pics.
 

@@ -1,25 +1,33 @@
 {
   "project_info": {
-    "project_number": "53350333311",
-    "project_id": "firebase-terratechnica"
+    "project_number": "590940517691",
+    "project_id": "terra-219fc"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:53350333311:android:6428361686ec993e",
+        "mobilesdk_app_id": "1:590940517691:android:6428361686ec993e",
         "android_client_info": {
           "package_name": "delhi.android.nit.com.terratechnica"
         }
       },
       "oauth_client": [
         {
-          "client_id": "53350333311-112km5t327bce32l242n6kdni7pa30i5.apps.googleusercontent.com",
+          "client_id": "590940517691-cii7q2dck5e369a2gldtm4psdbopb3b3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "delhi.android.nit.com.terratechnica",
+            "certificate_hash": "a61a831798a7372e6bd750e5be2969eff1f29bbc"
+          }
+        },
+        {
+          "client_id": "590940517691-cbldmss970cdambtlam5ecplieedunb6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDOuL4Wnj-fK7jMG2KXG9oetKI_lUlTrWk"
+          "current_key": "AIzaSyDprUzXw1nARkG1h6KnDSxyqGRVBm4APvI"
         }
       ],
       "services": {

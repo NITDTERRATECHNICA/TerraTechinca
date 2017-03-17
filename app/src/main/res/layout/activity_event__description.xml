@@ -5,13 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="#303030"
     tools:context="delhi.android.nit.com.terratechnica.Event_Description">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/bg2"
-        android:scaleType="centerCrop" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

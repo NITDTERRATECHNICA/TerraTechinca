@@ -2,6 +2,7 @@ package delhi.android.nit.com.terratechnica;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -99,7 +100,7 @@ public class Robotics_Fragment extends Fragment {
 
         @Override
         public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_view1,parent,false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.robotics_custom,parent,false);
             Holder holder = new Holder(view);
             return holder;
         }
@@ -108,7 +109,6 @@ public class Robotics_Fragment extends Fragment {
         public void onBindViewHolder(final Holder holder, int position) {
             if(mParam1 == 1) {
                 holder.textView2.setText(Data.roboEvent[position]);
-                holder.titleDesp.setText("(" + "Robotics" + ")");
                 //Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/asdfgh");
                 Picasso.with(getContext())
                         .load(Data.RoboPics[position])
@@ -136,13 +136,14 @@ public class Robotics_Fragment extends Fragment {
 
     private class Holder extends RecyclerView.ViewHolder{
         ImageView imageView2;
-        TextView textView2,titleDesp,despDesp;
+        TextView textView2;
         LinearLayout back;
         public Holder(final View itemView) {
             super(itemView);
             imageView2 = (ImageView) itemView.findViewById(R.id.imageView2);
             textView2 = (TextView) itemView.findViewById(R.id.textView2);
-            titleDesp = (TextView) itemView.findViewById(R.id.textView5);
+            Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),  "fonts/JosefinSans-Regular.ttf");
+            textView2.setTypeface(custom_font);
             back = (LinearLayout) itemView.findViewById(R.id.back);
 
             itemView.setOnClickListener(

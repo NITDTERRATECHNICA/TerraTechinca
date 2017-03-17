@@ -2,6 +2,8 @@ package delhi.android.nit.com.terratechnica;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.icu.text.DisplayContext;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,8 +28,6 @@ public class Event_Description extends AppCompatActivity {
 
     ImageView image;
     TextView despTitle,despTitleHint,despDesp,despContact;
-    boolean flag = false;
-    //String email ,lname,fname,college,phone;
     int position;
     String type;
     String eventName;
@@ -70,11 +70,20 @@ public class Event_Description extends AppCompatActivity {
         position = getIntent().getIntExtra("position",0);
         type = getIntent().getStringExtra("type");
         eventName = getIntent().getStringExtra("eventName");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/JosefinSans-Regular.ttf");
+        Typeface bold = Typeface.createFromAsset(getAssets(),"fonts/JosefinSans-Bold.ttf");
+        Typeface semibold = Typeface.createFromAsset(getAssets(),"fonts/JosefinSans-SemiBold.ttf");
         image = (ImageView) findViewById(R.id.image);
         despTitle = (TextView) findViewById(R.id.despTitle);
         despTitleHint = (TextView) findViewById(R.id.despTitleHint);
         despDesp = (TextView) findViewById(R.id.despDesp);
         despContact = (TextView) findViewById(R.id.despContact);
+        despTitle.setTypeface(bold);
+        despTitleHint.setTypeface(semibold);
+        despDesp.setTypeface(custom_font);
+        despContact.setTypeface(custom_font);
+        TextView textView4 = (TextView) findViewById(R.id.textView4);
+        textView4.setTypeface(semibold);
 
         if(type.equals("coding")) {
              despTitle.setText(Data.codingEvents[position]);

@@ -1,7 +1,14 @@
 package delhi.android.nit.com.terratechnica;
 
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
@@ -9,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -20,15 +28,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
@@ -36,45 +51,72 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.model.people.Person;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Arrays;
+
 import layout.Contact_Us;
 import layout.Events;
 
 public class LaunchActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,GoogleApiClient.OnConnectionFailedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,GoogleApiClient.OnConnectionFailedListener ,Dialog.callback{
 
     private TextView info;
+    SignInButton signInButton;
     private LoginButton loginButton;
     View header;
     private CallbackManager callbackManager;
+    private AccessTokenTracker accessTokenTracker;
+    private ProfileTracker profileTracker;
     FrameLayout contentContainer;
     TextView navname,navEmail;
     ImageView navImage;
+    Button logoutButton;
     GoogleApiClient mGoogleApiClient;
     int RC_SIGN_IN = 10298;
     boolean first = false;
     ImageView launchBG,navBG;
-    int current;
+    private AccessToken accessToken;
     DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences sharedPreferences = getSharedPreferences("FirstTime",MODE_PRIVATE);
         if(sharedPreferences.contains("first"))
         {
-            Log.e("Manojit","If    "+first);
+            //Log.e("Manojit","If    "+first);
             first = sharedPreferences.getBoolean("first",false);
         }
         else
         {
-            Log.e("Manojit","Else     "+first);
+            //Log.e("Manojit","Else     "+first);
             first = true;
         }
         if(first)
@@ -88,8 +130,7 @@ public class LaunchActivity extends AppCompatActivity
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
-                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
                     editor.putBoolean("first",false);
                     editor.commit();
                     startActivity(new Intent(LaunchActivity.this,LaunchActivity.class));
@@ -106,6 +147,24 @@ public class LaunchActivity extends AppCompatActivity
                     //info.setText("Login attempt failed.");
                 }
             });
+
+            accessTokenTracker = new AccessTokenTracker() {
+                @Override
+                protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+
+                }
+            };
+
+            profileTracker = new ProfileTracker() {
+                @Override
+                protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+
+                }
+            };
+
+            accessTokenTracker.startTracking();
+            profileTracker.startTracking();
+
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
                     .build();
@@ -143,6 +202,41 @@ public class LaunchActivity extends AppCompatActivity
             navname = (TextView) header.findViewById(R.id.navName);
             navEmail = (TextView) header.findViewById(R.id.navEmail);
             navImage = (ImageView) header.findViewById(R.id.navImage);
+            logoutButton = (Button) header.findViewById(R.id.logoutButton);
+            logoutButton.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                                    new ResultCallback<Status>() {
+                                        @Override
+                                        public void onResult(Status status) {
+                                            signInButton.setVisibility(View.VISIBLE);
+                                            logoutButton.setVisibility(View.GONE);
+                                            SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                                            SharedPreferences.Editor editor = sharedPreferences2.edit();
+                                            editor.clear();
+                                            editor.commit();
+                                            navname.setText("user");
+                                            navEmail.setText("user@email.com");
+                                            Picasso.with(LaunchActivity.this)
+                                                    .load(R.drawable.flipkart)
+                                                    .into(navImage);
+                                        }
+                                    });
+
+                        }
+                    }
+            );
+            SharedPreferences sharedPreferences1 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            if(sharedPreferences.contains("name"))
+            {
+                navname.setText(sharedPreferences1.getString("name",""));
+                navEmail.setText(sharedPreferences1.getString("email",""));
+                Picasso.with(this)
+                        .load(sharedPreferences1.getString("uri",""))
+                        .into(navImage);
+            }
             navBG = (ImageView) header.findViewById(R.id.navBG);
             Picasso.with(this)
                     .load(R.drawable.headers)
@@ -152,11 +246,22 @@ public class LaunchActivity extends AppCompatActivity
             callbackManager = CallbackManager.Factory.create();
             //info = (TextView)findViewById(R.id.info);
             loginButton = (LoginButton) header.findViewById(R.id.login_button);
-
+            loginButton.setReadPermissions(Arrays.asList(
+                    "public_profile","email", "user_birthday"));
             //fb callback intercpt
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
-                public void onSuccess(LoginResult loginResult) {
+                public void onSuccess( LoginResult loginResult) {
+
+                    accessToken = loginResult.getAccessToken();
+                    Profile profile = Profile.getCurrentProfile();
+                    if (profile != null) {
+                        layoutUpdater(accessToken,profile);
+                    }
+                    else{
+                        profileTracker.startTracking();
+                    }
+
 
                 }
 
@@ -171,19 +276,62 @@ public class LaunchActivity extends AppCompatActivity
                 }
             });
 
+            if(Profile.getCurrentProfile()==null){
+                profileTracker = new ProfileTracker() {
+                    @Override
+                    protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+
+                        Profile.setCurrentProfile(currentProfile);
+
+                        Log.e("Manojit", "" + currentProfile);
+                        if(Profile.getCurrentProfile()!=null)
+                            layoutUpdater(accessToken,Profile.getCurrentProfile());
+                        else{
+
+                        }
+                        profileTracker.stopTracking();
+                    }
+
+                };
+            }
+
+            accessTokenTracker = new AccessTokenTracker() {
+                @Override
+                protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                    AccessToken.setCurrentAccessToken(currentAccessToken);
+                    if(currentAccessToken!=oldAccessToken)
+                    {
+                        SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                        SharedPreferences.Editor editor = sharedPreferences2.edit();
+                        editor.clear();
+                        editor.commit();
+                        navname.setText("user");
+                        navEmail.setText("user@email.com");
+                        Picasso.with(LaunchActivity.this)
+                                .load(R.drawable.flipkart)
+                                .into(navImage);
+                    }
+                }
+            };
+
+
+
+
 
             //google login
 
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                    .requestScopes(new Scope(Scopes.PLUS_LOGIN))
                     .requestEmail()
                     .build();
 
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                     .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                    .addApi(Plus.API)
                     .build();
 
-            SignInButton signInButton = (SignInButton) header.findViewById(R.id.sign_in_button);
+            signInButton = (SignInButton) header.findViewById(R.id.sign_in_button);
             signInButton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
@@ -243,6 +391,52 @@ public class LaunchActivity extends AppCompatActivity
         }
 
     }
+    String name;
+    Uri uri;
+    String email;
+    String gender;
+    public void layoutUpdater(AccessToken accessToken,Profile profile)
+    {
+        Log.e("Manojit", "" + profile.getName());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        name = profile.getName();
+        navname.setText("" + name);
+        uri = profile.getProfilePictureUri(400, 400);
+        Picasso.with(LaunchActivity.this)
+                .load(uri)
+                .into(navImage);
+        editor.putString("name",name);
+        editor.putString("uri",uri.toString());
+
+        GraphRequest graphRequest = GraphRequest.newMeRequest(
+                accessToken, new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+
+                        try {
+                            Log.e("Manojit", "" + object.toString());
+                            email = object.getString("email");
+                            //String birthday = object.getString("birthday");
+                            gender = object.getString("gender");
+                            editor.putString("email",email);
+                            editor.putString("gender",gender);
+                            editor.commit();
+                            Dialog dialog = new Dialog();
+                            dialog.show(getFragmentManager(),"");
+                            navEmail.setText(email);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+        );
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "id,name,email,gender,birthday");
+        graphRequest.setParameters(parameters);
+        graphRequest.executeAsync();
+
+    }
 
     public void navigate(View v)
     {
@@ -252,9 +446,23 @@ public class LaunchActivity extends AppCompatActivity
             drawer.closeDrawer(Gravity.LEFT);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //profileTracker.startTracking();
+        accessTokenTracker.startTracking();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onPause();
+        Log.e("Manojit","Stop");
+        //accessTokenTracker.stopTracking();
+       // profileTracker.stopTracking();
+    }
+
     public void login(View v){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
         editor.putBoolean("first",false);
         editor.commit();
         startActivity(new Intent(this,LaunchActivity.class));
@@ -262,17 +470,15 @@ public class LaunchActivity extends AppCompatActivity
     }
 
     public void gmailSignin(View v){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
         editor.putBoolean("first",false);
         editor.commit();
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        startActivity(new Intent(this,LaunchActivity.class));
+        finish();
     }
 
     public void skip(View v){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
         editor.putBoolean("first",false);
         editor.commit();
         startActivity(new Intent(this,LaunchActivity.class));
@@ -286,25 +492,60 @@ public class LaunchActivity extends AppCompatActivity
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
+
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     private void handleSignInResult(GoogleSignInResult result) {
         //Log.d(TAG, "handleSignInResult:" + result.isSuccess());
         if (result.isSuccess()) {
+            signInButton.setVisibility(View.GONE);
+            logoutButton.setVisibility(View.VISIBLE);
+            String gende = "";
             // Signed in successfully, show authenticated UI.
+            Person person = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+            Log.e("Manojit",""+person);
+            try {
+
+                JSONObject jsonObject = new JSONObject(person.toString());
+
+                if (person != null) {
+                    gende = jsonObject.getString("gender");
+                    Log.e("Manojit",gender+" hello   "+person);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             GoogleSignInAccount acct = result.getSignInAccount();
             navname.setText(acct.getDisplayName());
             navEmail.setText(acct.getEmail());
             Picasso.with(this)
                     .load(acct.getPhotoUrl())
                     .into(navImage);
-            //updateUI(true);
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            name = acct.getDisplayName();
+            email = acct.getEmail();
+            gender = ""+gende;
+            editor.putString("gender",gende);
+            editor.putString("name",acct.getDisplayName());
+            editor.putString("email",acct.getEmail());
+            editor.putString("uri",acct.getPhotoUrl().toString());
+            editor.commit();
+            Dialog dialog = new Dialog();
+            dialog.show(getFragmentManager(),"google");
         } else {
             // Signed out, show unauthenticated UI.
             //updateUI(false);
         }
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -369,4 +610,143 @@ public class LaunchActivity extends AppCompatActivity
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+    String phone,college;
+    @Override
+    public void register() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        phone = sharedPreferences.getString("mobile","");
+        college = sharedPreferences.getString("college","");
+        new Background(LaunchActivity.this).execute(name,phone,gender,email,college);
+    }
+
+    private class Background extends AsyncTask<String,Void,String> {
+
+        String registration_link = "http://insigniathefest.com/manojit/terra_register.php";
+        Context context;
+        AlertDialog.Builder builder;
+        Activity activity;
+        ProgressDialog progressDialog;
+
+        public Background(Context context) {
+            this.context = context;
+            activity = (Activity) context;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            try{
+                progressDialog = new ProgressDialog(activity);
+                progressDialog.setTitle("Working!!");
+                progressDialog.setIndeterminate(true);
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                URL url = new URL(registration_link);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.setDoOutput(true);
+                connection.setRequestMethod("POST");
+                OutputStream outputStream = connection.getOutputStream();
+                for(int i=0;i<params.length;i++){
+                    Log.e("Manojit",params[i]+"\n");
+                }
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+                String data = "";
+                data = URLEncoder.encode("name","UTF-8")+"="+URLEncoder.encode(params[0],"UTF-8")+"&"+
+                        URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode(params[1],"UTF-8")+"&"+
+                        URLEncoder.encode("gendre","UTF-8")+"="+URLEncoder.encode(params[2],"UTF-8")+"&"+
+                        URLEncoder.encode("email","UTF-8")+"="+URLEncoder.encode(params[3],"UTF-8")+"&"+
+                        URLEncoder.encode("college","UTF-8")+"="+URLEncoder.encode(params[4],"UTF-8");
+
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream = connection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line = "";
+                while((line = bufferedReader.readLine()) != null){
+                    stringBuilder.append(line+"\n");
+                }
+                connection.disconnect();
+                //Log.e("Manoit",stringBuilder.toString()+"");
+                Thread.sleep(3000);
+                return stringBuilder.toString().trim();
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if(progressDialog!=null){
+                progressDialog.dismiss();
+            }
+            if(s!=null)
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONArray jsonArray = jsonObject.getJSONArray("server_response");
+                JSONObject JO = jsonArray.getJSONObject(0);
+                String code = JO.getString("code");
+                String message = JO.getString("message");
+
+                if(code.equals("true")){
+                    Log.e("Manojit",""+code);
+                    builder = new AlertDialog.Builder(context);
+                    builder.setTitle("Successfull!!");
+                    builder.setMessage(message);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+
+                        }
+                    });
+                    builder.setCancelable(false);
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+                else{
+                    builder = new AlertDialog.Builder(context);
+                    builder.setTitle("UnSuccessfull!!");
+                    builder.setMessage(message);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+
+                        }
+                    });
+                    builder.setCancelable(false);
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }

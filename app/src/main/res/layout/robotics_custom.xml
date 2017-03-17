@@ -34,23 +34,13 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1.5"
+                android:layout_weight="3"
                 android:text="Event_Name"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/colorPrimaryDark"
                 android:gravity="center"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:text="Event_Type"
-                android:textColor="@color/colorPrimaryDark"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.5"
-                android:gravity="center"
-                android:alpha="0.9"
-                android:id="@+id/textView5" />
 
         </LinearLayout>
 
