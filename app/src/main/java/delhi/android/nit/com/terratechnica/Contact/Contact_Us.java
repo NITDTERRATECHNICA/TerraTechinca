@@ -60,7 +60,7 @@ public class Contact_Us extends Fragment {
         contactsData.add(new ContactsData("Bhupesh Kumar","9716848553","bhupesh","Co-Convener"));
         contactsData.add(new ContactsData("Shantanu Patil","9158121986","shantanu","Co-Convener"));
         contactsData.add(new ContactsData("Lakshya","8527546574","lakshya","Web Developer"));
-        contactsData.add(new ContactsData("Manojit Paul", "9650419350", "manojit", "Android App Developer"));
+        contactsData.add(new ContactsData("Manojit Paul", "9650419350", "manojit_paul", "Android App Developer"));
         contactsData.add(new ContactsData("Shivam Bathla", "8860032051", "shivam", "Android App Developer"));
         contactsData.add(new ContactsData("Ayush Pranav", "7289017595", "ayush", "UI Developer"));
         contactsData.add(new ContactsData("Sai Manohar","8130129479","sai_manohar","UI Developer"));

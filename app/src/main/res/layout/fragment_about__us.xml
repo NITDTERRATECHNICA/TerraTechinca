@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_about__us"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,62 +8,67 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
         android:id="@+id/scrview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:paddingTop="10dp"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:id="@+id/image_logo"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_centerHorizontal="true"
-                />
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/about_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/image_logo"
                 android:gravity="center"
                 android:padding="15dp"
-                android:textSize="18sp"
-                android:text="Manifesting the opportunities of technology and innovation, and prioritising the need to extend the same, the National Institute of Technology Delhi inherently presents its first technical festival, the TerraTechnica’17. Conveying the sole motivation of continuous and cumulative importance of technology and its attributes in the developing scenario of the nation, TerraTechnica’17 tends to strengthen the role of engineering applications and its utilisation. The fest renders the bright minds of the country an opportunistic potential to evolve their technical skills, combined with the notion of emerging at the pole position in the competitive environments. It enunciates itself as the learning grounds for proper conceptual vision, developmental ideas, establishing a foreground for technical and engineering applications, and their achievability. In addition, TerraTechnica’17 also prioritises the absolute growth of the visual modality of the participants to intensify the scope of nurturing. An inspiration amalgamating with the spark of an idea embarks the incept"
-                android:layout_below="@+id/image_logo"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:text="@string/about_us"
+                android:textSize="18sp" />
 
             <LinearLayout
-                android:layout_below="@id/about_text"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/about_text"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/fb"/>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/inst"
-                    android:layout_marginRight="10dp"/>
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/youtube"/>
-            </LinearLayout>
+                android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/abFB"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/fb" />
+
+                <ImageView
+                    android:id="@+id/abIN"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/inst" />
+
+                <ImageView
+                    android:id="@+id/abYO"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/youtube" />
+            </LinearLayout>
 
 
         </RelativeLayout>
     </ScrollView>
 
 </RelativeLayout>
-

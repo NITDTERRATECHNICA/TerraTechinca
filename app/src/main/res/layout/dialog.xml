@@ -57,6 +57,7 @@
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:gravity="center"
+            android:inputType="phone"
             android:hint="Mobile No." />
 
         </android.support.design.widget.TextInputLayout>

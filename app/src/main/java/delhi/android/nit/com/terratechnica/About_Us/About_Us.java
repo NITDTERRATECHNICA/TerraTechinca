@@ -1,6 +1,7 @@
 package delhi.android.nit.com.terratechnica.About_Us;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,10 +21,11 @@ import delhi.android.nit.com.terratechnica.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class About_Us extends Fragment {
+public class About_Us extends Fragment implements View.OnClickListener {
 
     ImageView image_logo;
     TextView about_text;
+    ImageView abFB,abIN,abYO;
     public About_Us() {
     }
 
@@ -39,10 +41,29 @@ public class About_Us extends Fragment {
         about_text = (TextView) view.findViewById(R.id.about_text);
         about_text.setTypeface(custom_font);
         image_logo = (ImageView) view.findViewById(R.id.image_logo);
-        Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/logo2");
+        abFB = (ImageView) view.findViewById(R.id.abFB);
+        abIN = (ImageView) view.findViewById(R.id.abIN);
+        abYO = (ImageView) view.findViewById(R.id.abYO);
+        Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/logo");
         Picasso.with(getContext())
                 .load(uri)
                 .into(image_logo);
     }
 
+    @Override
+    public void onClick(View view) {
+
+        String url = "";
+        if(view.getId() == R.id.abFB)
+            url = "https://www.facebook.com/terratechnica/";
+        if(view.getId() == R.id.abIN)
+            url = "https://www.instagram.com/terratechnica/";
+        if(view.getId() == R.id.abYO)
+            url = "https://www.youtube.com/channel/UCwkrKduy5122UrOAPZIpRMQ";
+
+
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+    }
 }

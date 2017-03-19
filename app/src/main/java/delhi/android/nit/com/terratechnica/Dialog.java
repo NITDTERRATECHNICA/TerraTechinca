@@ -1,7 +1,6 @@
 package delhi.android.nit.com.terratechnica;
 
 import android.app.DialogFragment;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -26,13 +25,15 @@ public class Dialog extends DialogFragment {
 //    }
 
     callback callback;
+    EditText college, mobile;
+    Button button;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return LayoutInflater.from(getActivity()).inflate(R.layout.dialog,container,false);
+        return LayoutInflater.from(getActivity()).inflate(R.layout.dialog, container, false);
     }
-EditText college,mobile;
-    Button button;
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -45,19 +46,16 @@ EditText college,mobile;
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if(college.getText().toString().length()>0 && mobile.getText().toString().length()==10)
-                        {
+                        if (college.getText().toString().length() > 0 && mobile.getText().toString().length() == 10) {
                             getDialog().dismiss();
                             SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
                             SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("college",college.getText().toString());
-                            editor.putString("mobile",mobile.getText().toString());
+                            editor.putString("college", college.getText().toString());
+                            editor.putString("mobile", mobile.getText().toString());
                             editor.commit();
-                            if(!getDialog().isShowing())
+                            if (!getDialog().isShowing())
                                 callback.register();
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(getActivity(), "Provide with Genuine Data", Toast.LENGTH_SHORT).show();
                             college.setText("");
                             mobile.setText("");
@@ -68,8 +66,7 @@ EditText college,mobile;
     }
 
 
-    public interface callback
-    {
+    public interface callback {
         void register();
     }
 }

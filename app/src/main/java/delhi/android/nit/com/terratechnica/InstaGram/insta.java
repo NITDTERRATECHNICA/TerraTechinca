@@ -58,7 +58,7 @@ public class insta extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         galleryRV = (RecyclerView) view.findViewById(R.id.galleryRV);
-        galleryRV.setLayoutManager(new GridLayoutManager(getContext(),2));
+        galleryRV.setLayoutManager(new GridLayoutManager(getContext(), 2));
         progressBar = (ProgressBar) view.findViewById(R.id.prog);
         if (isOnline()) {
             new Background().execute();
@@ -75,6 +75,35 @@ public class insta extends Fragment {
             return true;
         } else {
             return false;
+        }
+    }
+
+    void loadImages() {
+        try {
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url(URL).build();
+            Response response = client.newCall(request).execute();
+            String result = response.body().string();
+
+            setofFlowers = new ArrayList<>();
+            JSONObject jo1 = new JSONObject(result);
+            JSONArray ja1 = jo1.getJSONArray("items");
+            JSONObject jo2, jo3, jo4, jo5, jo6;
+            JSONObject low = new JSONObject(), thumb = new JSONObject(), standard = new JSONObject();
+            for (int i = 0; i < ja1.length(); i++) {
+                jo2 = ja1.getJSONObject(i);
+                jo3 = jo2.getJSONObject("images");
+                jo4 = jo3.getJSONObject("low_resolution");
+                jo5 = jo3.getJSONObject("thumbnail");
+                jo6 = jo3.getJSONObject("standard_resolution");
+                low.put(String.valueOf(i), jo4.getString("url"));
+                thumb.put(String.valueOf(i), jo5.getString("url"));
+                standard.put(String.valueOf(i), jo6.getString("url"));
+                setofFlowers.add(new Images(jo4.getString("url"), jo6.getString("url")));
+            }
+
+        } catch (Exception e) {
+
         }
     }
 
@@ -98,36 +127,6 @@ public class insta extends Fragment {
         }
     }
 
-
-    void loadImages() {
-        try {
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder().url(URL).build();
-            Response response = client.newCall(request).execute();
-            String result = response.body().string();
-
-            setofFlowers = new ArrayList<Images>();
-            JSONObject jo1 = new JSONObject(result);
-            JSONArray ja1 = jo1.getJSONArray("items");
-            JSONObject jo2, jo3, jo4, jo5, jo6;
-            JSONObject low = new JSONObject(), thumb = new JSONObject(), standard = new JSONObject();
-            for (int i = 0; i < ja1.length(); i++) {
-                jo2 = ja1.getJSONObject(i);
-                jo3 = jo2.getJSONObject("images");
-                jo4 = jo3.getJSONObject("low_resolution");
-                jo5 = jo3.getJSONObject("thumbnail");
-                jo6 = jo3.getJSONObject("standard_resolution");
-                low.put(String.valueOf(i), jo4.getString("url"));
-                thumb.put(String.valueOf(i), jo5.getString("url"));
-                standard.put(String.valueOf(i), jo6.getString("url"));
-                setofFlowers.add(new Images(jo4.getString("url"), jo6.getString("url")));
-            }
-
-        } catch (Exception e) {
-
-        }
-    }
-
     private class Adapter extends RecyclerView.Adapter<Holder> {
 
         @Override
@@ -147,48 +146,47 @@ public class insta extends Fragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            ViewCompat.setTransitionName(holder.image1,String.valueOf(position) + "_albumart");
+            ViewCompat.setTransitionName(holder.image1, String.valueOf(position) + "_albumart");
         }
 
         @Override
         public int getItemCount() {
             if (setofFlowers == null) {
                 return 0;
-            }
-            else {
+            } else {
                 return (setofFlowers.size());
             }
         }
     }
 
-        private class Holder extends RecyclerView.ViewHolder {
+    private class Holder extends RecyclerView.ViewHolder {
 
-            ImageView image1;
+        ImageView image1;
 
-            public Holder(final View itemView) {
-                super(itemView);
-                image1 = (ImageView) itemView.findViewById(R.id.image1);
-                itemView.setOnClickListener(
-                        new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                LargePicture largePicture = new LargePicture(setofFlowers.get(galleryRV.getChildAdapterPosition(itemView)).getFullImageLink());
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                    largePicture.setSharedElementEnterTransition(TransitionInflater.from(getContext()).inflateTransition(R.transition.transition));
-                                    largePicture.setSharedElementReturnTransition(TransitionInflater.from(getContext()).inflateTransition(R.transition.transition));
-
-                                }
-                                getActivity().getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.container,largePicture,"Hello")
-                                        .addSharedElement(image1,"largePic")
-                                        .addToBackStack("")
-                                        .commit();
+        public Holder(final View itemView) {
+            super(itemView);
+            image1 = (ImageView) itemView.findViewById(R.id.image1);
+            itemView.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            LargePicture largePicture = new LargePicture(setofFlowers.get(galleryRV.getChildAdapterPosition(itemView)).getFullImageLink());
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                largePicture.setSharedElementEnterTransition(TransitionInflater.from(getContext()).inflateTransition(R.transition.transition));
+                                largePicture.setSharedElementReturnTransition(TransitionInflater.from(getContext()).inflateTransition(R.transition.transition));
 
                             }
-                        }
-                );
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.container, largePicture, "Hello")
+                                    .addSharedElement(image1, "largePic")
+                                    .addToBackStack("")
+                                    .commit();
 
-            }
+                        }
+                    }
+            );
+
         }
     }
+}
 

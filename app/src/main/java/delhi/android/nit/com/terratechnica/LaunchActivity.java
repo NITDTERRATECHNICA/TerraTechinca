@@ -12,18 +12,17 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -77,59 +76,63 @@ import java.util.Arrays;
 
 import delhi.android.nit.com.terratechnica.About_Us.About_Us;
 import delhi.android.nit.com.terratechnica.Contact.Contact_Us;
+import delhi.android.nit.com.terratechnica.FAQSection.FAQData;
 import delhi.android.nit.com.terratechnica.InstaGram.insta;
+import delhi.android.nit.com.terratechnica.Maps.Maps;
 import delhi.android.nit.com.terratechnica.Sponsor.Sponsor;
 
 public class LaunchActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,GoogleApiClient.OnConnectionFailedListener ,Dialog.callback{
+        implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener, Dialog.callback {
 
-    private TextView info;
     Button signinButton;
-    private LoginButton loginButton;
     View header;
-    private CallbackManager callbackManager;
-    private AccessTokenTracker accessTokenTracker;
-    private ProfileTracker profileTracker;
     FrameLayout contentContainer;
-    TextView navname,navEmail;
+    TextView navname, navEmail;
     ImageView navImage;
     Button logoutButton;
     GoogleApiClient mGoogleApiClient;
     int RC_SIGN_IN = 10298;
     boolean first = false;
-    ImageView launchBG,navBG;
-    private AccessToken accessToken;
+    ImageView launchBG, navBG;
     DrawerLayout drawer;
+    String name;
+    Uri uri;
+    String email;
+    String gender = "unknown";
+    String phone, college;
+    private TextView info;
+    private LoginButton loginButton;
+    private CallbackManager callbackManager;
+    private AccessTokenTracker accessTokenTracker;
+    private ProfileTracker profileTracker;
+    private AccessToken accessToken;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-        SharedPreferences sharedPreferences = getSharedPreferences("FirstTime",MODE_PRIVATE);
-        if(sharedPreferences.contains("first"))
-        {
+        SharedPreferences sharedPreferences = getSharedPreferences("FirstTime", MODE_PRIVATE);
+        if (sharedPreferences.contains("first")) {
             //Log.e("Manojit","If    "+first);
-            first = sharedPreferences.getBoolean("first",false);
-        }
-        else
-        {
+            first = sharedPreferences.getBoolean("first", false);
+        } else {
             //Log.e("Manojit","Else     "+first);
             first = true;
         }
-        if(first)
-        {
+        if (first) {
             setContentView(R.layout.login_template);
             callbackManager = CallbackManager.Factory.create();
             //info = (TextView)findViewById(R.id.info);
             loginButton = (LoginButton) findViewById(R.id.login_button);
 
-            //fb callback intercpt
+            //fb callback intercept ...
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
-                    SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
-                    editor.putBoolean("first",false);
+                    SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
+                    editor.putBoolean("first", false);
                     editor.commit();
-                    startActivity(new Intent(LaunchActivity.this,LaunchActivity.class));
+                    startActivity(new Intent(LaunchActivity.this, LaunchActivity.class));
                     finish();
                 }
 
@@ -169,8 +172,7 @@ public class LaunchActivity extends AppCompatActivity
                     .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                     .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                     .build();
-        }
-        else {
+        } else {
 
 
             setContentView(R.layout.activity_launch);
@@ -218,14 +220,13 @@ public class LaunchActivity extends AppCompatActivity
                     }
             );
             SharedPreferences sharedPreferences1 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-            Log.e("Manojit",""+sharedPreferences1.contains("name"));
-            if(sharedPreferences1.contains("name"))
-            {
-                Log.e("Manojit",""+sharedPreferences1.getString("name",""));
-                navname.setText(sharedPreferences1.getString("name",""));
-                navEmail.setText(sharedPreferences1.getString("email",""));
+//            Log.e("Manojit", "" + sharedPreferences1.contains("name"));
+            if (sharedPreferences1.contains("name")) {
+//                Log.e("Manojit", "" + sharedPreferences1.getString("name", ""));
+                navname.setText(sharedPreferences1.getString("name", ""));
+                navEmail.setText(sharedPreferences1.getString("email", ""));
                 Picasso.with(this)
-                        .load(sharedPreferences1.getString("uri",""))
+                        .load(sharedPreferences1.getString("uri", ""))
                         .into(navImage);
             }
             navBG = (ImageView) header.findViewById(R.id.navBG);
@@ -238,18 +239,17 @@ public class LaunchActivity extends AppCompatActivity
             //info = (TextView)findViewById(R.id.info);
             loginButton = (LoginButton) header.findViewById(R.id.login_button);
             loginButton.setReadPermissions(Arrays.asList(
-                    "public_profile","email", "user_birthday"));
+                    "public_profile", "email", "user_birthday"));
             //fb callback intercpt
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
-                public void onSuccess( LoginResult loginResult) {
+                public void onSuccess(LoginResult loginResult) {
 
                     accessToken = loginResult.getAccessToken();
                     Profile profile = Profile.getCurrentProfile();
                     if (profile != null) {
-                        layoutUpdater(accessToken,profile);
-                    }
-                    else{
+                        layoutUpdater(accessToken, profile);
+                    } else {
                         profileTracker.startTracking();
                     }
 
@@ -265,17 +265,17 @@ public class LaunchActivity extends AppCompatActivity
                 }
             });
 
-            if(Profile.getCurrentProfile()==null){
+            if (Profile.getCurrentProfile() == null) {
                 profileTracker = new ProfileTracker() {
                     @Override
                     protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
 
                         Profile.setCurrentProfile(currentProfile);
 
-                        Log.e("Manojit", "" + currentProfile);
-                        if(Profile.getCurrentProfile()!=null)
-                            layoutUpdater(accessToken,Profile.getCurrentProfile());
-                        else{
+//                        Log.e("Manojit", "" + currentProfile);
+                        if (Profile.getCurrentProfile() != null)
+                            layoutUpdater(accessToken, Profile.getCurrentProfile());
+                        else {
 
                         }
                         profileTracker.stopTracking();
@@ -288,8 +288,7 @@ public class LaunchActivity extends AppCompatActivity
                 @Override
                 protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
                     AccessToken.setCurrentAccessToken(currentAccessToken);
-                    if(currentAccessToken!=oldAccessToken)
-                    {
+                    if (currentAccessToken != oldAccessToken) {
                         SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                         SharedPreferences.Editor editor = sharedPreferences2.edit();
                         editor.clear();
@@ -302,9 +301,6 @@ public class LaunchActivity extends AppCompatActivity
                     }
                 }
             };
-
-
-
 
 
             //google login
@@ -374,13 +370,9 @@ public class LaunchActivity extends AppCompatActivity
         }
 
     }
-    String name;
-    Uri uri;
-    String email;
-    String gender = "unknown";
-    public void layoutUpdater(AccessToken accessToken,Profile profile)
-    {
-        Log.e("Manojit", "" + profile.getName());
+
+    public void layoutUpdater(AccessToken accessToken, Profile profile) {
+//        Log.e("Manojit", "" + profile.getName());
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         final SharedPreferences.Editor editor = sharedPreferences.edit();
         name = profile.getName();
@@ -389,8 +381,8 @@ public class LaunchActivity extends AppCompatActivity
         Picasso.with(LaunchActivity.this)
                 .load(uri)
                 .into(navImage);
-        editor.putString("name",name);
-        editor.putString("uri",uri.toString());
+        editor.putString("name", name);
+        editor.putString("uri", uri.toString());
 
         GraphRequest graphRequest = GraphRequest.newMeRequest(
                 accessToken, new GraphRequest.GraphJSONObjectCallback() {
@@ -398,15 +390,15 @@ public class LaunchActivity extends AppCompatActivity
                     public void onCompleted(JSONObject object, GraphResponse response) {
 
                         try {
-                            Log.e("Manojit", "" + object.toString());
+//                            Log.e("Manojit", "" + object.toString());
                             email = object.getString("email");
                             //String birthday = object.getString("birthday");
                             gender = object.getString("gender");
-                            editor.putString("email",email);
-                            editor.putString("gender",gender);
+                            editor.putString("email", email);
+                            editor.putString("gender", gender);
                             editor.commit();
                             Dialog dialog = new Dialog();
-                            dialog.show(getFragmentManager(),"");
+                            dialog.show(getFragmentManager(), "");
                             navEmail.setText(email);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -421,9 +413,8 @@ public class LaunchActivity extends AppCompatActivity
 
     }
 
-    public void navigate(View v)
-    {
-        if(!drawer.isDrawerOpen(Gravity.LEFT))
+    public void navigate(View v) {
+        if (!drawer.isDrawerOpen(Gravity.LEFT))
             drawer.openDrawer(Gravity.LEFT);
         else
             drawer.closeDrawer(Gravity.LEFT);
@@ -436,32 +427,27 @@ public class LaunchActivity extends AppCompatActivity
         accessTokenTracker.startTracking();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onPause();
-    }
-
-    public void login(View v){
-        SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
-        editor.putBoolean("first",false);
+    public void login(View v) {
+        SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
+        editor.putBoolean("first", false);
         editor.commit();
-        startActivity(new Intent(this,LaunchActivity.class));
+        startActivity(new Intent(this, LaunchActivity.class));
         finish();
     }
 
-    public void gmailSignin(View v){
-        SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
-        editor.putBoolean("first",false);
+    public void gmailSignin(View v) {
+        SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
+        editor.putBoolean("first", false);
         editor.commit();
-        startActivity(new Intent(this,LaunchActivity.class));
+        startActivity(new Intent(this, LaunchActivity.class));
         finish();
     }
 
-    public void skip(View v){
-        SharedPreferences.Editor editor = getSharedPreferences("FirstTime",MODE_PRIVATE).edit();
-        editor.putBoolean("first",false);
+    public void skip(View v) {
+        SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
+        editor.putBoolean("first", false);
         editor.commit();
-        startActivity(new Intent(this,LaunchActivity.class));
+        startActivity(new Intent(this, LaunchActivity.class));
         finish();
     }
 
@@ -488,16 +474,16 @@ public class LaunchActivity extends AppCompatActivity
             String gende = "";
             // Signed in successfully, show authenticated UI.
             Person person = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
-            Log.e("Manojit",""+person);
+//            Log.e("Manojit", "" + person);
             try {
 
                 JSONObject jsonObject = new JSONObject(person.toString());
 
                 if (person != null) {
                     gende = jsonObject.getString("gender");
-                    Log.e("Manojit",gende+" hello   "+person);
+//                    Log.e("Manojit", gende + " hello   " + person);
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             GoogleSignInAccount acct = result.getSignInAccount();
@@ -511,19 +497,18 @@ public class LaunchActivity extends AppCompatActivity
             name = acct.getDisplayName();
             email = acct.getEmail();
             gender = "unknown";
-            gender = ""+gende;
-            editor.putString("gender",gender);
-            editor.putString("name",acct.getDisplayName());
-            editor.putString("email",acct.getEmail());
-            editor.putString("uri",acct.getPhotoUrl().toString());
+            if(!gende.equals(""))
+                gender = "" + gende;
+            editor.putString("gender", gender);
+            editor.putString("name", acct.getDisplayName());
+            editor.putString("email", acct.getEmail());
+            editor.putString("uri", acct.getPhotoUrl().toString());
             editor.commit();
             Dialog dialog = new Dialog();
-            dialog.show(getFragmentManager(),"google");
+            dialog.show(getFragmentManager(), "google");
         } else {
         }
     }
-
-
 
     @Override
     public void onBackPressed() {
@@ -556,29 +541,65 @@ public class LaunchActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.location) {
+        if (id == R.id.locate_us) {
+
+            Intent intent = new Intent(LaunchActivity.this, Maps.class);
+            startActivity(intent);
+//            finish();
+
+        } else if (id == R.id.faq) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            Fragment fragment = new Sponsor();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container,fragment)
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment container = getSupportFragmentManager().findFragmentById(R.id.container);
+
+            if (container != null) {
+                transaction.remove(container);
+            }
+
+            Fragment fragment = new FAQData();
+            transaction.replace(R.id.container, fragment)
                     .addToBackStack(null)
                     .commit();
 
-        }  else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_gallery) {
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment container = getSupportFragmentManager().findFragmentById(R.id.container);
+
+            if (container != null) {
+                transaction.remove(container);
+            }
+
+            Fragment fragment = new Sponsor();
+            transaction.replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .commit();
 
         } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("text/plain");
+            share.putExtra(Intent.EXTRA_SUBJECT, "TerraTechnica'17");
 
+            // ToDO: Put the app link here ...
+            share.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?" +
+                    "id=com.newbies.terrateam.terratechnica2k17");
+            startActivity(share);
+
+        } else if (id == R.id.nav_feed) {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+
+            // TODO: Keep the link for playstore account here ...
+            intent.setData(Uri.parse("market://details?id=com.newbies.terrateam.terratechnica2k17"));
+            // Eg:  market://details?id=com.example.android ...
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -590,16 +611,16 @@ public class LaunchActivity extends AppCompatActivity
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-    String phone,college;
+
     @Override
     public void register() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        phone = sharedPreferences.getString("mobile","");
-        college = sharedPreferences.getString("college","");
-        new Background(LaunchActivity.this).execute(name,phone,gender,email,college);
+        phone = sharedPreferences.getString("mobile", "");
+        college = sharedPreferences.getString("college", "");
+        new Background(LaunchActivity.this).execute(name, phone, gender, email, college);
     }
 
-    private class Background extends AsyncTask<String,Void,String> {
+    private class Background extends AsyncTask<String, Void, String> {
 
         String registration_link = "http://insigniathefest.com/manojit/terra_register.php";
         Context context;
@@ -616,14 +637,13 @@ public class LaunchActivity extends AppCompatActivity
         protected void onPreExecute() {
             super.onPreExecute();
 
-            try{
+            try {
                 progressDialog = new ProgressDialog(activity);
                 progressDialog.setTitle("Working!!");
                 progressDialog.setIndeterminate(true);
                 progressDialog.setCancelable(false);
                 progressDialog.show();
-            }catch(Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -637,16 +657,16 @@ public class LaunchActivity extends AppCompatActivity
                 connection.setDoOutput(true);
                 connection.setRequestMethod("POST");
                 OutputStream outputStream = connection.getOutputStream();
-                for(int i=0;i<params.length;i++){
-                    Log.e("Manojit",params[i]+"\n");
-                }
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream,"UTF-8"));
+//                for (int i = 0; i < params.length; i++) {
+//                    Log.e("Manojit", params[i] + "\n");
+//                }
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
                 String data = "";
-                data = URLEncoder.encode("name","UTF-8")+"="+URLEncoder.encode(params[0],"UTF-8")+"&"+
-                        URLEncoder.encode("phone","UTF-8")+"="+URLEncoder.encode(params[1],"UTF-8")+"&"+
-                        URLEncoder.encode("gendre","UTF-8")+"="+URLEncoder.encode(params[2],"UTF-8")+"&"+
-                        URLEncoder.encode("email","UTF-8")+"="+URLEncoder.encode(params[3],"UTF-8")+"&"+
-                        URLEncoder.encode("college","UTF-8")+"="+URLEncoder.encode(params[4],"UTF-8");
+                data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(params[0], "UTF-8") + "&" +
+                        URLEncoder.encode("phone", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8") + "&" +
+                        URLEncoder.encode("gendre", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8") + "&" +
+                        URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(params[3], "UTF-8") + "&" +
+                        URLEncoder.encode("college", "UTF-8") + "=" + URLEncoder.encode(params[4], "UTF-8");
 
                 bufferedWriter.write(data);
                 bufferedWriter.flush();
@@ -657,8 +677,8 @@ public class LaunchActivity extends AppCompatActivity
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 StringBuilder stringBuilder = new StringBuilder();
                 String line = "";
-                while((line = bufferedReader.readLine()) != null){
-                    stringBuilder.append(line+"\n");
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line + "\n");
                 }
                 connection.disconnect();
                 //Log.e("Manoit",stringBuilder.toString()+"");
@@ -671,7 +691,7 @@ public class LaunchActivity extends AppCompatActivity
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
@@ -680,52 +700,51 @@ public class LaunchActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            if(progressDialog!=null){
+            if (progressDialog != null) {
                 progressDialog.dismiss();
             }
-            if(s!=null)
-            try {
-                JSONObject jsonObject = new JSONObject(s);
-                JSONArray jsonArray = jsonObject.getJSONArray("server_response");
-                JSONObject JO = jsonArray.getJSONObject(0);
-                String code = JO.getString("code");
-                String message = JO.getString("message");
+            if (s != null)
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    JSONArray jsonArray = jsonObject.getJSONArray("server_response");
+                    JSONObject JO = jsonArray.getJSONObject(0);
+                    String code = JO.getString("code");
+                    String message = JO.getString("message");
 
-                if(code.equals("true")){
-                    Log.e("Manojit",""+code);
-                    builder = new AlertDialog.Builder(context);
-                    builder.setTitle("Successfull!!");
-                    builder.setMessage(message);
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
+                    if (code.equals("true")) {
+//                        Log.e("Manojit", "" + code);
+                        builder = new AlertDialog.Builder(context);
+                        builder.setTitle("Successful!!");
+                        builder.setMessage(message);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
 
-                        }
-                    });
-                    builder.setCancelable(false);
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
+                            }
+                        });
+                        builder.setCancelable(false);
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    } else {
+                        builder = new AlertDialog.Builder(context);
+                        builder.setTitle("UnSuccessful!!");
+                        builder.setMessage(message);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+
+                            }
+                        });
+                        builder.setCancelable(false);
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                else{
-                    builder = new AlertDialog.Builder(context);
-                    builder.setTitle("UnSuccessfull!!");
-                    builder.setMessage(message);
-                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-
-                        }
-                    });
-                    builder.setCancelable(false);
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-                }
-
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
     }
 

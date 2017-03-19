@@ -22,6 +22,10 @@ public class LargePicture extends Fragment {
 
     String link ;
 
+    public LargePicture() {
+
+    }
+
     public LargePicture(String link) {
         this.link = link;
     }

@@ -3,29 +3,30 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/location"
-            android:icon="@drawable/location"
-            android:title="Location" />
+            android:id="@+id/locate_us"
+            android:icon="@drawable/locate_us"
+            android:title="@string/locate_us"
+            />
+        <item
+            android:id="@+id/faq"
+            android:icon="@drawable/locate_us"
+            android:title="@string/faq" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/sponsor"
-            android:title="Sponsor" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="@string/sponsor" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/share" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_feed"
+                android:icon="@drawable/ic_menu_feed"
+                android:title="@string/feedback" />
         </menu>
     </item>
 

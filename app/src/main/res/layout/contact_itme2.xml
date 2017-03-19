@@ -55,7 +55,7 @@
             android:layout_alignParentStart="true">
 
             <ImageView
-                android:id="@+id/sponsor_image"
+                android:id="@+id/person_image"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
@@ -117,7 +117,7 @@
             android:layout_alignParentRight="true">
 
             <ImageView
-                android:id="@+id/sponsor_image1"
+                android:id="@+id/person_image1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"

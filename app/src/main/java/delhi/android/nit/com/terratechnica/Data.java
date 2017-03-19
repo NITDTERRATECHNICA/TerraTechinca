@@ -1,17 +1,22 @@
 package delhi.android.nit.com.terratechnica;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import delhi.android.nit.com.terratechnica.FAQSection.FAQ;
+
 /**
  * Created by Manojit Paul on 3/15/2017.
  */
 
 public class Data {
+    public static final List<FAQ> FAQ_DATA = new ArrayList<>();
     static String[] codingEvents = {
             "Nitd Programming League",
             "Reverse Coding",
             "Clash of Codes",
             "Hackathon",
-            "Untangle the Tangle",
-            "Capture the Flag"
+            "Untangle the Tangle"
     };
     static String[] codingDesp = {
             "“Talk is cheap. Show me the code”\n" +
@@ -45,6 +50,24 @@ public class Data {
             "Whizzing through the land of maths and science , this event will take you through the world of deciphers,\n" +
                     "\n" +
                     "while testing your basic fundamental maths and science skills every step of the way.",
+    };
+    static String[] codingPics = {
+            "http://insigniathefest.com/manojit/nitpl.jpg",
+            "http://insigniathefest.com/manojit/reverse.jpg",
+            "http://insigniathefest.com/manojit/clashofcode.jpg",
+            "http://insigniathefest.com/manojit/hackathon.jpg",
+            "http://insigniathefest.com/manojit/untangle.jpg",
+    };
+
+    static String[] cyberEvent = {
+            "Capture the Flag"
+    };
+
+    static String[] cyberPics = {
+            "http://insigniathefest.com/manojit/Shivam/ctf.jpg"
+    };
+
+    static String[] cyberDesc = {
             "CTF is an event which provides a platform for participants to work out on real world scenarios\n" +
                     "\n" +
                     "like malware analysis \u200B¸pentesting , system administration. \u200B The game is played in team of four\n" +
@@ -64,14 +87,6 @@ public class Data {
                     "The game duration is estimated to be around 3hrs."
     };
 
-    static String[] codingPics = {
-            "http://insigniathefest.com/manojit/nitpl.jpg",
-            "http://insigniathefest.com/manojit/reverse.jpg",
-            "http://insigniathefest.com/manojit/clashofcode.jpg",
-            "http://insigniathefest.com/manojit/hackathon.jpg",
-            "http://insigniathefest.com/manojit/reverse.jpg",
-            "http://insigniathefest.com/manojit/reverse.jpg"
-    };
     static String[] roboEvent = {
             "RoboWars",
             "DEATH RACE",
@@ -89,9 +104,9 @@ public class Data {
             "http://insigniathefest.com/manojit/robosoccer.jpg",
             "http://insigniathefest.com/manojit/codemb.jpg",
             "http://insigniathefest.com/manojit/puckcollect.jpg",
-            "http://insigniathefest.com/manojit/reverse.jpg",
-            "http://insigniathefest.com/manojit/reverse.jpg",
-            "http://insigniathefest.com/manojit/reverse.jpg"
+            "http://insigniathefest.com/manojit/d_inno.jpg",
+            "http://insigniathefest.com/manojit/maze.jpg",
+            "http://insigniathefest.com/manojit/robo.jpg"
     };
 
     static String[] roboDesp = {
@@ -179,7 +194,7 @@ public class Data {
     static String[] MiscPics = {
             "http://insigniathefest.com/manojit/nitdexpo.jpg",
             "http://insigniathefest.com/manojit/youth.jpg",
-            "http://insigniathefest.com/manojit/typotude.jpg"
+            "http://insigniathefest.com/manojit/probability.jpg"
     };
 
     static String[] MiscDesp = {
@@ -199,4 +214,44 @@ public class Data {
                     "\n" +
                     "The second part of the event is a competition comprising of solving 5 general quizzes."
     };
+
+    public static void setFAQData() {
+
+        FAQ_DATA.add(new FAQ("Q. When will the registration for the events be opened?",
+                "A. Registration link will be active on the website terratechnica.in " +
+                        "soon. Notification on the app will be provided " +
+                        "for the same. On spot registrations are subjected to availability " +
+                        "of seats for that particular event."));
+
+        FAQ_DATA.add(new FAQ("Q. What all deliverables do we receive after registering?",
+                "A. Registration fee is applicable only for participating in the " +
+                        "particular event. Also accommodation fee, ID card and entry " +
+                        "to the guest lectures is included."));
+
+
+        FAQ_DATA.add(new FAQ("Q. What kind of accommodation is available?",
+                "A. There is separate accommodation for girls and " +
+                        "boys. Proper bedding would be provided to all " +
+                        "the registered students."));
+
+
+        FAQ_DATA.add(new FAQ("Q. Are their any arrangements made for food by the organizing committee for the registered students?",
+                "A. The students will be provided with coupons for the same on nominal charges."));
+
+
+        FAQ_DATA.add(new FAQ("Q. Can two participants be from different institutes in team events?",
+                "A. Yes, inter-college teams are permitted to participate in team events. " +
+                        "But the teams have to register together while paying the registration fee."));
+
+
+        FAQ_DATA.add(new FAQ("Q. Is there any provision for on-spot registration?",
+                "A. On spot registrations for all formal events are subjected " +
+                        "to the availability of seats."));
+
+
+        FAQ_DATA.add(new FAQ("Q. What are the DON'Ts during the time of fest?",
+                "A. No means to destroy the college property.No abusive " +
+                        "substance is allowed."));
+
+    }
 }

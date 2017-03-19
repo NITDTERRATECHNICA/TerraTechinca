@@ -8,6 +8,13 @@
     android:background="#303030"
     tools:context="delhi.android.nit.com.terratechnica.Event_Description">
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50sp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/back"
+        android:scaleType="centerCrop"
+        android:onClick="back"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
