@@ -43,6 +43,9 @@ public class Sponsor extends Fragment {
     private ProgressDialog pDialog;
     private List<SponsorModel> sponsorModelList = new ArrayList<>();
 
+    private View view;
+    private int spCount;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
@@ -53,23 +56,29 @@ public class Sponsor extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        this.view = view;
+
+        if (isOnline()) {
+            new Background().execute();
+//            setUpData(view);
+        } else {
+            Toast.makeText(getContext(), "Network not available!", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void setUpData(View view) {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-
+        recyclerView.setAdapter(new SponsorUsAdapter());
         contactBG = (ImageView) view.findViewById(R.id.contactBG);
         Glide.with(getActivity())
                 .load(R.drawable.bg2)
                 .crossFade()
                 .centerCrop()
                 .into(contactBG);
-
-        if (isOnline()) {
-            new Background().execute();
-        } else {
-            Toast.makeText(getContext(), "Network not available!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public boolean isOnline() {
@@ -90,15 +99,15 @@ public class Sponsor extends Fragment {
         try {
             JSONObject jsonObj = new JSONObject(sponsorData);
 
+            spCount = jsonObj.getInt("count");
+
             JSONArray sponsorList = jsonObj.getJSONArray("name");
             JSONArray sponsorImg = jsonObj.getJSONArray("img");
-            JSONArray sponsorWeb = jsonObj.getJSONArray("web");
             JSONArray sponsorSupport = jsonObj.getJSONArray("support");
 
             for (int i = 0; i < sponsorList.length(); i++) {
                 sponsorModelList.add(new SponsorModel(sponsorList.get(i).toString(),
                         sponsorImg.get(i).toString(),
-                        sponsorWeb.get(i).toString(),
                         sponsorSupport.get(i).toString()));
             }
 
@@ -121,18 +130,20 @@ public class Sponsor extends Fragment {
                 SponsorModel model = sponsorModelList.get(position);
 
                 holder.sponsor_name.setText(model.getName());
-                holder.sponsor_weblink.setText(model.getLink());
                 holder.sponsor_support_level.setText(model.getSupportLevel());
                 Picasso.with(getContext())
                         .load(model.getImg())
                         .into(holder.sponsor_image);
+
+                if(pDialog.isShowing())
+                    pDialog.dismiss();
 
             }
         }
 
         @Override
         public int getItemCount() {
-            return 4;
+            return spCount;
         }
     }
 
@@ -151,6 +162,7 @@ public class Sponsor extends Fragment {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
             loadSponsorData();
             return null;
         }
@@ -158,8 +170,10 @@ public class Sponsor extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            recyclerView.setAdapter(new SponsorUsAdapter());
-            pDialog.dismiss();
+
+//            Toast.makeText(getContext(), sponsorModelList.toString(), Toast.LENGTH_SHORT).show();
+
+            setUpData(view);
         }
     }
 
@@ -167,14 +181,13 @@ public class Sponsor extends Fragment {
     private class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView sponsor_image;
-        TextView sponsor_name, sponsor_support_level, sponsor_weblink;
+        TextView sponsor_name, sponsor_support_level;
 
         public ViewHolder(View itemView) {
             super(itemView);
             sponsor_image = (ImageView) itemView.findViewById(R.id.sponsor_image);
             sponsor_name = (TextView) itemView.findViewById(R.id.sponsor_name);
             sponsor_support_level = (TextView) itemView.findViewById(R.id.sponsor_support_level);
-            sponsor_weblink = (TextView) itemView.findViewById(R.id.sponsor_weblink);
 
         }
     }

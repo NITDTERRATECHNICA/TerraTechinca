@@ -25,7 +25,7 @@ public class MyApplication extends Application {
         PackageInfo info;
         try {
             info = getPackageManager().getPackageInfo(
-                    "delhi.android.nit.com.saptrang2k16",
+                    "delhi.android.nit.com.terratechnica",
                     PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md;

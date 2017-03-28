@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="#303030"
+    android:fitsSystemWindows="true"
     tools:context="delhi.android.nit.com.terratechnica.Event_Description">
+
+
+    <include layout="@layout/content_event__description" />
 
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50sp"
         android:layout_marginTop="50dp"
-        android:src="@drawable/back"
+        android:onClick="back"
         android:scaleType="centerCrop"
-        android:onClick="back"/>
+        android:src="@drawable/back" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -22,8 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-    <include layout="@layout/content_event__description" />
+        app:srcCompat="@drawable/register" />
 
 </android.support.design.widget.CoordinatorLayout>

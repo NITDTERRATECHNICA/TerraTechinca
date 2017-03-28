@@ -59,6 +59,30 @@ public class Data {
             "http://insigniathefest.com/manojit/untangle.jpg",
     };
 
+    static String[] codingContact = {
+            "Tanuj Yadav(9716755258)\nAnurag Giri(8802220624)",
+            "Kapil Kumar(8826889275)\nManojit Paul(9650419350)\nNinad(8052974240)",
+            "Rahul Yadav(8826331369)\nShivam Bathla(8860032051)",
+            "Anirudh Gupta(9045677424)\nKapil Kumar(8826889275)",
+            "Sarfraz Ahmad(7065152946)\nTarun Talreja(7359475475)"
+    };
+    static String[] cyberContact = {
+            "Mohit Rajjain(9015689669)"
+    };
+    static String[] roboContact = {
+            "Gaurav Chaudhary(8377060470)\nSuraj Agarwal(9636364312)",
+            "Ayush Pranav(7289017595)\nTanuj Kumar(9650332369)",
+            "Ojasvi Arora(9968430077)\nHarshit Tyagi(9888357929)",
+            "Sai Venkata Manohar(8130129479)\nSri Phani Aditya(8099765783)",
+            "Ajay Meena(9718687448)\nAjay Kumar Gautam(9918549278)",
+            "Raunak Pathak(8571829725)\nGaurav Chaudhary(8377060470)",
+            "Puneet Shrivastava(9406643408)\nKeshav Kedia(9711507662)",
+            "Ashwani Chaurasia(9034092964)\nChandan Kumar(9430029172)",
+            "Nishant Garg(7503319020)\nNishant Singhal(9654962514)"
+
+    };
+
+
     static String[] cyberEvent = {
             "Capture the Flag"
     };
@@ -88,14 +112,15 @@ public class Data {
     };
 
     static String[] roboEvent = {
-            "RoboWars",
-            "DEATH RACE",
+            "Battle of Bots",
+            "Death Race",
             "Robosoccer",
             "CodEmb",
             "Puck Collect",
             "Design and Innovation event",
-            "MAZE RUNNER",
-            "ROBO RUMBLE"
+            "Maze Follower",
+            "Robo Rumble",
+            "Metal Hunt"
     };
 
     static String[] RoboPics = {
@@ -106,7 +131,8 @@ public class Data {
             "http://insigniathefest.com/manojit/puckcollect.jpg",
             "http://insigniathefest.com/manojit/d_inno.jpg",
             "http://insigniathefest.com/manojit/maze.jpg",
-            "http://insigniathefest.com/manojit/robo.jpg"
+            "http://insigniathefest.com/manojit/robo.jpg",
+            "http://insigniathefest.com/manojit/metal.jpg"
     };
 
     static String[] roboDesp = {
@@ -139,7 +165,8 @@ public class Data {
                     "triumph over opponents.\n" +
                     "\n" +
                     "Come … conquer &amp; savour victory!!",
-            "",
+            "Do something creative with the hardware issued to\n" +
+                    "you, and showcase your technical creativity.\n",
             "“If you&#39;re going to decipher a hidden code from a complex set of different mazes, I&#39;m pretty sure you need a\n" +
                     "\n" +
                     "sherlock&#39;s brain running the show.”",
@@ -149,18 +176,29 @@ public class Data {
                     "\n" +
                     "score the basket in the fastest time. Defy gravity; it pulls down all. Vertical is the new horizontal, the\n" +
                     "\n" +
-                    "Escalades."
+                    "Escalades.",
+            "Can the metal detector you designed help you\n" +
+                    "win the prize? \n"
     };
     static String[] onlineEvent = {
-            "VIRTUAL STOCK MARKET",
-            "INNOVATICA",
-            "TYPOTUDE",
+            "Virtual Stock Market",
+            "Innovatica",
+            "Typotude",
     };
     static String[] onlinePics = {
             "http://insigniathefest.com/manojit/virtual.jpg",
             "http://insigniathefest.com/manojit/innovatica.jpg",
             "http://insigniathefest.com/manojit/typotude.jpg",
     };
+
+    static String[] onlineContact = {
+            "Manoj Harsha(9910599296)\nShantanu Patil(9158121986)",
+            "Rahul Goel(8860809067)\nVaibhav Kinra(8860266619)",
+            "Aadil Ehsan(7210209309)"
+    };
+
+
+
     static String[] onlineDesp = {
             "Always cherished striking gold, trading at Dalal Street/Nasdaq? Think you can grab opportunities and make\n" +
                     "\n" +
@@ -182,13 +220,20 @@ public class Data {
                     "INNOVATICA, an online event where each person has to present a unique innovative idea and how that idea\n" +
                     "\n" +
                     "will make our lives better.",
-            ""
+            "After all, nothing is binary. A world of fractions awaits\n" +
+                    "exploration.\n"
     };
 
     static String[] MiscEvent = {
             "NITD Expo",
             "Youth Parliament",
             "ProbabilityMadeEasy"
+    };
+
+    static String[] miscContact = {
+            "Manoj Harsha(9910599296)\nShantanu Patil(9158121986)",
+            "Bhavanam Yoga Sasidhar Reddy(8750267966)\nSanyogita Singh(9560494264)",
+            "Rajat Garg(8750904045)\nSamridhi Goel(8377811423)"
     };
 
     static String[] MiscPics = {

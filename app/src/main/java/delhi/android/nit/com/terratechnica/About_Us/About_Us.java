@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,6 +45,9 @@ public class About_Us extends Fragment implements View.OnClickListener {
         abFB = (ImageView) view.findViewById(R.id.abFB);
         abIN = (ImageView) view.findViewById(R.id.abIN);
         abYO = (ImageView) view.findViewById(R.id.abYO);
+        abFB.setOnClickListener(this);
+        abIN.setOnClickListener(this);
+        abYO.setOnClickListener(this);
         Uri uri = Uri.parse("android.resource://delhi.android.nit.com.terratechnica/drawable/logo");
         Picasso.with(getContext())
                 .load(uri)

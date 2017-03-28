@@ -10,12 +10,9 @@ public class SponsorModel {
     private String img;
     private String supportLevel;
 
-    private String link;
-
-    public SponsorModel(String name, String img, String link, String supportLevel) {
+    public SponsorModel(String name, String img, String supportLevel) {
         this.name = name;
         this.img = img;
-        this.link = link;
         this.supportLevel = supportLevel;
     }
 
@@ -42,12 +39,5 @@ public class SponsorModel {
     public void setSupportLevel(String supportLevel) {
         this.supportLevel = supportLevel;
     }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
 }
+

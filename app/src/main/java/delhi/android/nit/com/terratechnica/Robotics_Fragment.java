@@ -119,9 +119,9 @@ public class Robotics_Fragment extends Fragment {
         @Override
         public int getItemCount() {
             if(mParam1 == 1)
-                return 8;
+                return Data.roboEvent.length;
             else
-                return 8;
+                return Data.roboEvent.length;
         }
     }
 

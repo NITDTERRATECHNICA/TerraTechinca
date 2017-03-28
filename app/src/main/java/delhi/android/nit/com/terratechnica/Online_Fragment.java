@@ -115,9 +115,9 @@ public class Online_Fragment extends Fragment {
         @Override
         public int getItemCount() {
             if (mParam1 == 1)
-                return 3;
+                return Data.onlineEvent.length;
             else
-                return 3;
+                return Data.onlineEvent.length;
         }
     }
 

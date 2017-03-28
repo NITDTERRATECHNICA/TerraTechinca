@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
         android:layout_gravity="center_vertical"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
@@ -17,9 +17,9 @@
         <ImageView
             android:id="@+id/sponsor_image"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1.25"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:src="@drawable/asd" />
 
 
@@ -30,13 +30,13 @@
             android:layout_weight="1.75"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:weightSum="3">
+            android:weightSum="7">
 
             <TextView
                 android:id="@+id/sponsor_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:text="CODE EMB"
                 android:textColor="@color/colorPrimary"
@@ -45,17 +45,17 @@
 
             <TextView
                 android:id="@+id/sponsor_support_level"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:text="Title sponsor"
                 android:textColor="#191919"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/sponsor_weblink"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:autoLink="web"

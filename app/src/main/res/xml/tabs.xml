@@ -10,8 +10,8 @@
         title="Events"/>
     <tab
         id="@+id/tab_instagram"
-        icon="@drawable/instagram"
-        title="InstaFeed"/>
+        icon="@drawable/sponsor"
+        title="Sponsor"/>
     <tab
         id="@+id/tab_contact"
         icon="@drawable/contact"

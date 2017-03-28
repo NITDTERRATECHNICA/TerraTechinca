@@ -121,9 +121,9 @@ public class Event_Main extends Fragment {
         @Override
         public int getItemCount() {
             if (mParam1 == 1)
-                return 5;
+                return Data.codingEvents.length;
             else
-                return 5;
+                return Data.codingEvents.length;
         }
     }
 

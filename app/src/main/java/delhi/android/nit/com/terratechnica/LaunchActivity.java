@@ -117,8 +117,7 @@ public class LaunchActivity extends AppCompatActivity
             first = sharedPreferences.getBoolean("first", false);
         } else {
             //Log.e("Manojit","Else     "+first);
-            first = true;
-        }
+            first = false;       }
         if (first) {
             setContentView(R.layout.login_template);
             callbackManager = CallbackManager.Factory.create();
@@ -126,43 +125,72 @@ public class LaunchActivity extends AppCompatActivity
             loginButton = (LoginButton) findViewById(R.id.login_button);
 
             //fb callback intercept ...
+            loginButton.setReadPermissions(Arrays.asList(
+                    "public_profile", "email", "user_birthday"));
+            //fb callback intercpt
             loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                 @Override
                 public void onSuccess(LoginResult loginResult) {
-                    SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
-                    editor.putBoolean("first", false);
-                    editor.commit();
-                    startActivity(new Intent(LaunchActivity.this, LaunchActivity.class));
-                    finish();
+
+                    accessToken = loginResult.getAccessToken();
+                    profileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+
+                            Profile.setCurrentProfile(currentProfile);
+
+//                        Log.e("Manojit", "" + currentProfile);
+                            if (Profile.getCurrentProfile() != null)
+                                layoutUpdaterLogin(accessToken, Profile.getCurrentProfile());
+                            else {
+
+                            }
+                            profileTracker.stopTracking();
+                        }
+
+                    };
+                    Profile profile = Profile.getCurrentProfile();
+                    if (profile != null) {
+                        layoutUpdaterLogin(accessToken, profile);
+                    } else {
+                        profileTracker.startTracking();
+                    }
+
+
                 }
 
                 @Override
                 public void onCancel() {
-                    //info.setText("Login attempt canceled.");
                 }
 
                 @Override
                 public void onError(FacebookException e) {
-                    //info.setText("Login attempt failed.");
                 }
             });
+
+            if (Profile.getCurrentProfile() == null) {
+
+            }
 
             accessTokenTracker = new AccessTokenTracker() {
                 @Override
                 protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-
+                    AccessToken.setCurrentAccessToken(currentAccessToken);
+                    if (currentAccessToken != oldAccessToken) {
+                        SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+                        SharedPreferences.Editor editor = sharedPreferences2.edit();
+                        editor.clear();
+                        editor.commit();
+                        if(!first){
+                            navname.setText("user");
+                            navEmail.setText("user@email.com");
+                            Picasso.with(LaunchActivity.this)
+                                    .load(R.drawable.flipkart)
+                                    .into(navImage);
+                        }
+                    }
                 }
             };
-
-            profileTracker = new ProfileTracker() {
-                @Override
-                protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-
-                }
-            };
-
-            accessTokenTracker.startTracking();
-            profileTracker.startTracking();
 
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestEmail()
@@ -246,6 +274,22 @@ public class LaunchActivity extends AppCompatActivity
                 public void onSuccess(LoginResult loginResult) {
 
                     accessToken = loginResult.getAccessToken();
+                    profileTracker = new ProfileTracker() {
+                        @Override
+                        protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
+
+                            Profile.setCurrentProfile(currentProfile);
+
+//                        Log.e("Manojit", "" + currentProfile);
+                            if (Profile.getCurrentProfile() != null)
+                                layoutUpdater(accessToken, Profile.getCurrentProfile());
+                            else {
+
+                            }
+                            profileTracker.stopTracking();
+                        }
+
+                    };
                     Profile profile = Profile.getCurrentProfile();
                     if (profile != null) {
                         layoutUpdater(accessToken, profile);
@@ -266,22 +310,7 @@ public class LaunchActivity extends AppCompatActivity
             });
 
             if (Profile.getCurrentProfile() == null) {
-                profileTracker = new ProfileTracker() {
-                    @Override
-                    protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
 
-                        Profile.setCurrentProfile(currentProfile);
-
-//                        Log.e("Manojit", "" + currentProfile);
-                        if (Profile.getCurrentProfile() != null)
-                            layoutUpdater(accessToken, Profile.getCurrentProfile());
-                        else {
-
-                        }
-                        profileTracker.stopTracking();
-                    }
-
-                };
             }
 
             accessTokenTracker = new AccessTokenTracker() {
@@ -361,7 +390,7 @@ public class LaunchActivity extends AppCompatActivity
                         if (getSupportFragmentManager().findFragmentById(R.id.contentContainer) != null) {
                             fragmentTransaction.remove(getSupportFragmentManager().findFragmentById(R.id.contentContainer));
                         }
-                        fragmentTransaction.add(R.id.contentContainer, new insta());
+                        fragmentTransaction.add(R.id.contentContainer, new Sponsor());
                         fragmentTransaction.commit();
                     }
 
@@ -370,6 +399,18 @@ public class LaunchActivity extends AppCompatActivity
         }
 
     }
+
+//    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//    Fragment container = getSupportFragmentManager().findFragmentById(R.id.container);
+//
+//    if (container != null) {
+//        transaction.remove(container);
+//    }
+//
+//    Fragment fragment = new Sponsor();
+//    transaction.replace(R.id.container, fragment)
+//            .addToBackStack(null)
+//    .commit();
 
     public void layoutUpdater(AccessToken accessToken, Profile profile) {
 //        Log.e("Manojit", "" + profile.getName());
@@ -397,9 +438,8 @@ public class LaunchActivity extends AppCompatActivity
                             editor.putString("email", email);
                             editor.putString("gender", gender);
                             editor.commit();
-                            Dialog dialog = new Dialog();
-                            dialog.show(getFragmentManager(), "");
                             navEmail.setText(email);
+                            new BackgroundLogin(LaunchActivity.this).execute(email);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -411,6 +451,45 @@ public class LaunchActivity extends AppCompatActivity
         graphRequest.setParameters(parameters);
         graphRequest.executeAsync();
 
+    }
+
+    public void layoutUpdaterLogin(AccessToken accessToken, Profile profile){
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+//        name = profile.getName();
+//        navname.setText("" + name);
+        uri = profile.getProfilePictureUri(400, 400);
+//        Picasso.with(LaunchActivity.this)
+//                .load(uri)
+//                .into(navImage);
+        editor.putString("name", name);
+        editor.putString("uri", uri.toString());
+
+        GraphRequest graphRequest = GraphRequest.newMeRequest(
+                accessToken, new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+
+                        try {
+//                            Log.e("Manojit", "" + object.toString());
+                            email = object.getString("email");
+                            //String birthday = object.getString("birthday");
+                            gender = object.getString("gender");
+                            editor.putString("email", email);
+                            editor.putString("gender", gender);
+                            editor.commit();
+                            new BackgroundLogin(LaunchActivity.this).execute(email);
+//                            navEmail.setText(email);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+        );
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "id,name,email,gender,birthday");
+        graphRequest.setParameters(parameters);
+        graphRequest.executeAsync();
     }
 
     public void navigate(View v) {
@@ -504,8 +583,7 @@ public class LaunchActivity extends AppCompatActivity
             editor.putString("email", acct.getEmail());
             editor.putString("uri", acct.getPhotoUrl().toString());
             editor.commit();
-            Dialog dialog = new Dialog();
-            dialog.show(getFragmentManager(), "google");
+            new BackgroundLogin(LaunchActivity.this).execute(email);
         } else {
         }
     }
@@ -547,11 +625,26 @@ public class LaunchActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.locate_us) {
+        if(id == R.id.homes){
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment container = getSupportFragmentManager().findFragmentById(R.id.container);
 
+            if (container != null) {
+                transaction.remove(container);
+            }
+            transaction.commit();
+        }
+
+        if (id == R.id.locate_us) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            Fragment container = getSupportFragmentManager().findFragmentById(R.id.container);
+
+            if (container != null) {
+                transaction.remove(container);
+            }
+            transaction.commit();
             Intent intent = new Intent(LaunchActivity.this, Maps.class);
             startActivity(intent);
-//            finish();
 
         } else if (id == R.id.faq) {
             // Handle the camera action
@@ -577,7 +670,7 @@ public class LaunchActivity extends AppCompatActivity
                 transaction.remove(container);
             }
 
-            Fragment fragment = new Sponsor();
+            Fragment fragment = new insta();
             transaction.replace(R.id.container, fragment)
                     .addToBackStack(null)
                     .commit();
@@ -720,6 +813,13 @@ public class LaunchActivity extends AppCompatActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
+                                if(first) {
+                                    SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
+                                    editor.putBoolean("first", false);
+                                    editor.commit();
+                                    startActivity(new Intent(LaunchActivity.this, LaunchActivity.class));
+                                    finish();
+                                }
 
                             }
                         });
@@ -734,12 +834,135 @@ public class LaunchActivity extends AppCompatActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
+                                if(first) {
+                                    SharedPreferences.Editor editor = getSharedPreferences("FirstTime", MODE_PRIVATE).edit();
+                                    editor.putBoolean("first", false);
+                                    editor.commit();
+                                    startActivity(new Intent(LaunchActivity.this, LaunchActivity.class));
+                                    finish();
+                                }
 
                             }
                         });
                         builder.setCancelable(false);
                         AlertDialog alertDialog = builder.create();
                         alertDialog.show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+        }
+    }
+
+    private class BackgroundLogin extends AsyncTask<String, Void, String> {
+
+        String registration_link = "http://insigniathefest.com/manojit/terra_login.php";
+        Context context;
+        AlertDialog.Builder builder;
+        Activity activity;
+        ProgressDialog progressDialog;
+
+        public BackgroundLogin(Context context) {
+            this.context = context;
+            activity = (Activity) context;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            try {
+                progressDialog = new ProgressDialog(activity);
+                progressDialog.setTitle("Working!!");
+                progressDialog.setIndeterminate(true);
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                URL url = new URL(registration_link);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.setDoOutput(true);
+                connection.setRequestMethod("POST");
+                OutputStream outputStream = connection.getOutputStream();
+//                for (int i = 0; i < params.length; i++) {
+//                    Log.e("Manojit", params[i] + "\n");
+//                }
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data = "";
+                data = URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(params[0], "UTF-8");
+
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+
+                InputStream inputStream = connection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(line + "\n");
+                }
+                connection.disconnect();
+                //Log.e("Manoit",stringBuilder.toString()+"");
+                Thread.sleep(3000);
+                return stringBuilder.toString().trim();
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (progressDialog != null) {
+                progressDialog.dismiss();
+            }
+            if (s != null)
+                try {
+                    JSONObject jsonObject = new JSONObject(s);
+                    JSONArray jsonArray = jsonObject.getJSONArray("server_response");
+                    JSONObject JO = jsonArray.getJSONObject(0);
+                    String code = JO.getString("code");
+                    String message = JO.getString("message");
+
+                    if (code.equals("true")) {
+//                        Log.e("Manojit", "" + code);
+                        builder = new AlertDialog.Builder(context);
+                        builder.setTitle("Successful!!");
+                        builder.setMessage(message);
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+
+                            }
+                        });
+                        builder.setCancelable(false);
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    } else {
+                        if(message.equals("NO"))
+                        {
+                            Dialog dialog = new Dialog();
+                            dialog.show(getFragmentManager(), "");
+                        }
                     }
 
                 } catch (JSONException e) {

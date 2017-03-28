@@ -120,9 +120,9 @@ public class Misc_Fragment extends Fragment {
         @Override
         public int getItemCount() {
             if(mParam1 == 1)
-                return 3;
+                return Data.MiscEvent.length;
             else
-                return 3;
+                return Data.MiscEvent.length;
         }
     }
 

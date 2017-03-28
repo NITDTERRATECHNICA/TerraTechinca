@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
 import android.transition.Slide;
@@ -76,9 +77,7 @@ public class Event_Description extends AppCompatActivity {
             despTitle.setText(Data.codingEvents[position]);
             despTitleHint.setText("(" + "Coding Event" + ")");
             despDesp.setText(Data.codingDesp[position]);
-            despContact.setText("Coming soon!!");
-
-
+            despContact.setText(Data.codingContact[position]);
             Picasso.with(this)
                     .load(Data.codingPics[position])
                     .error(R.drawable.asd)
@@ -89,7 +88,7 @@ public class Event_Description extends AppCompatActivity {
             despTitle.setText(Data.roboEvent[position]);
             despTitleHint.setText("(" + "Robo Event" + ")");
             despDesp.setText(Data.roboDesp[position]);
-            despContact.setText(R.string.soon);
+            despContact.setText(Data.roboContact[position]);
             Picasso.with(this)
                     .load(Data.RoboPics[position])
                     .error(R.drawable.asd)
@@ -100,7 +99,7 @@ public class Event_Description extends AppCompatActivity {
             despTitle.setText(Data.onlineEvent[position]);
             despTitleHint.setText("(" + "Online Event" + ")");
             despDesp.setText(Data.onlineDesp[position]);
-            despContact.setText("Coming soon!!");
+            despContact.setText(Data.onlineContact[position]);
 
             Picasso.with(this)
                     .load(Data.onlinePics[position])
@@ -112,7 +111,7 @@ public class Event_Description extends AppCompatActivity {
             despTitle.setText(Data.MiscEvent[position]);
             despTitleHint.setText("(" + "Misc Event" + ")");
             despDesp.setText(Data.MiscDesp[position]);
-            despContact.setText(R.string.soon);
+            despContact.setText(Data.miscContact[position]);
 
             Picasso.with(this)
                     .load(Data.MiscPics[position])
@@ -124,7 +123,7 @@ public class Event_Description extends AppCompatActivity {
             despTitle.setText(Data.cyberEvent[position]);
             despTitleHint.setText("(" + "Cyber Event" + ")");
             despDesp.setText(Data.cyberDesc[position]);
-            despContact.setText(R.string.soon);
+            despContact.setText(Data.cyberContact[position]);
 
             Picasso.with(this)
                     .load(Data.cyberPics[position])
@@ -140,7 +139,7 @@ public class Event_Description extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String url = "http://google.com";
+                        String url = "https://thecollegefever.com/events/terratechnica17";
                         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                         builder.setToolbarColor(getResources().getColor(R.color.colorPrimary));
                         CustomTabsIntent customTabsIntent = builder.build();
@@ -152,7 +151,8 @@ public class Event_Description extends AppCompatActivity {
 
     public void back(View v)
     {
-        finish();
+
+        onBackPressed();
     }
 
 }
