@@ -20,14 +20,10 @@ import delhi.android.nit.com.terratechnica.R;
  */
 public class LargePicture extends Fragment {
 
-    String link ;
+    String link = insta.link;
 
     public LargePicture() {
 
-    }
-
-    public LargePicture(String link) {
-        this.link = link;
     }
 
 

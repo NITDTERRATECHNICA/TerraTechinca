@@ -52,13 +52,13 @@ public class Events extends Fragment {
             if (position == 1) {
                 fragment = Robotics_Fragment.newInstance(1);
             }
-            if (position == 2) {
+            if (position == 4) {
                 fragment = Online_Fragment.newInstance(1);
             }
             if (position == 3) {
                 fragment = Misc_Fragment.newInstance(1);
             }
-            if (position == 4) {
+            if (position == 2) {
                 fragment = CyberSecurity_Fragment.newInstance(1);
             }
             return fragment;
@@ -78,13 +78,13 @@ public class Events extends Fragment {
             if (position == 1) {
                 title = "Robotics";
             }
-            if (position == 2) {
+            if (position == 4) {
                 title = "Online";
             }
             if (position == 3) {
                 title = "Misc";
             }
-            if (position == 4) {
+            if (position == 2) {
                 title = "Cyber Security";
             }
             return title;

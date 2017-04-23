@@ -181,13 +181,11 @@ public class LaunchActivity extends AppCompatActivity
                         SharedPreferences.Editor editor = sharedPreferences2.edit();
                         editor.clear();
                         editor.commit();
-                        if(!first){
                             navname.setText("user");
                             navEmail.setText("user@email.com");
                             Picasso.with(LaunchActivity.this)
                                     .load(R.drawable.flipkart)
                                     .into(navImage);
-                        }
                     }
                 }
             };
@@ -439,6 +437,10 @@ public class LaunchActivity extends AppCompatActivity
                             editor.putString("gender", gender);
                             editor.commit();
                             navEmail.setText(email);
+                            navname.setText("" + name);
+                            Picasso.with(LaunchActivity.this)
+                                    .load(uri)
+                                    .into(navImage);
                             new BackgroundLogin(LaunchActivity.this).execute(email);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -581,7 +583,10 @@ public class LaunchActivity extends AppCompatActivity
             editor.putString("gender", gender);
             editor.putString("name", acct.getDisplayName());
             editor.putString("email", acct.getEmail());
-            editor.putString("uri", acct.getPhotoUrl().toString());
+            if(acct.getPhotoUrl() != null)
+                editor.putString("uri", acct.getPhotoUrl().toString());
+            else
+                editor.putString("uri", "android.resource://delhi.android.nit.com.terratechnica/drawable/flipkart");
             editor.commit();
             new BackgroundLogin(LaunchActivity.this).execute(email);
         } else {
@@ -683,14 +688,14 @@ public class LaunchActivity extends AppCompatActivity
 
             // ToDO: Put the app link here ...
             share.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?" +
-                    "id=com.newbies.terrateam.terratechnica2k17");
+                    "id=delhi.android.nit.com.terratechnica");
             startActivity(share);
 
         } else if (id == R.id.nav_feed) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
 
             // TODO: Keep the link for playstore account here ...
-            intent.setData(Uri.parse("market://details?id=com.newbies.terrateam.terratechnica2k17"));
+            intent.setData(Uri.parse("market://details?id=delhi.android.nit.com.terratechnica"));
             // Eg:  market://details?id=com.example.android ...
             startActivity(intent);
         }

@@ -14,6 +14,7 @@ import android.support.v7.graphics.Palette;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.LinkMovementMethod;
 import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
@@ -134,10 +135,10 @@ public class Robotics_Fragment extends Fragment {
             super(itemView);
             imageView2 = (ImageView) itemView.findViewById(R.id.imageView2);
             textView2 = (TextView) itemView.findViewById(R.id.textView2);
+            textView2.setMovementMethod(LinkMovementMethod.getInstance());
             Typeface custom_font = Typeface.createFromAsset(getContext().getAssets(),  "fonts/JosefinSans-Regular.ttf");
             textView2.setTypeface(custom_font);
             back = (LinearLayout) itemView.findViewById(R.id.back);
-
             itemView.setOnClickListener(
                     new View.OnClickListener() {
                         @Override

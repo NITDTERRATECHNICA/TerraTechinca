@@ -1,13 +1,11 @@
 package delhi.android.nit.com.terratechnica;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Fade;
 import android.transition.Slide;
@@ -27,8 +25,7 @@ public class Event_Description extends AppCompatActivity {
     int position;
     String type;
     String eventName;
-    //String IMAGE_LINK = "http://saptrangnitd.com/beta1/ap/images/";
-
+    String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +75,7 @@ public class Event_Description extends AppCompatActivity {
             despTitleHint.setText("(" + "Coding Event" + ")");
             despDesp.setText(Data.codingDesp[position]);
             despContact.setText(Data.codingContact[position]);
+            url = "https://thecollegefever.com/events/terratechnica17";
             Picasso.with(this)
                     .load(Data.codingPics[position])
                     .error(R.drawable.asd)
@@ -89,6 +87,7 @@ public class Event_Description extends AppCompatActivity {
             despTitleHint.setText("(" + "Robo Event" + ")");
             despDesp.setText(Data.roboDesp[position]);
             despContact.setText(Data.roboContact[position]);
+            url = "https://thecollegefever.com/events/terratechnica17";
             Picasso.with(this)
                     .load(Data.RoboPics[position])
                     .error(R.drawable.asd)
@@ -100,7 +99,7 @@ public class Event_Description extends AppCompatActivity {
             despTitleHint.setText("(" + "Online Event" + ")");
             despDesp.setText(Data.onlineDesp[position]);
             despContact.setText(Data.onlineContact[position]);
-
+            url = "https://thecollegefever.com/events/terratechnica17";
             Picasso.with(this)
                     .load(Data.onlinePics[position])
                     .error(R.drawable.asd)
@@ -112,7 +111,10 @@ public class Event_Description extends AppCompatActivity {
             despTitleHint.setText("(" + "Misc Event" + ")");
             despDesp.setText(Data.MiscDesp[position]);
             despContact.setText(Data.miscContact[position]);
-
+            if(Data.MiscEvent[position].equals("Paradox"))
+                url = "http://paradox.terratechnica.in/";
+            else
+                url = "https://thecollegefever.com/events/terratechnica17";
             Picasso.with(this)
                     .load(Data.MiscPics[position])
                     .error(R.drawable.asd)
@@ -124,7 +126,7 @@ public class Event_Description extends AppCompatActivity {
             despTitleHint.setText("(" + "Cyber Event" + ")");
             despDesp.setText(Data.cyberDesc[position]);
             despContact.setText(Data.cyberContact[position]);
-
+            url = "https://thecollegefever.com/events/terratechnica17";
             Picasso.with(this)
                     .load(Data.cyberPics[position])
                     .error(R.drawable.asd)
@@ -139,7 +141,6 @@ public class Event_Description extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String url = "https://thecollegefever.com/events/terratechnica17";
                         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
                         builder.setToolbarColor(getResources().getColor(R.color.colorPrimary));
                         CustomTabsIntent customTabsIntent = builder.build();

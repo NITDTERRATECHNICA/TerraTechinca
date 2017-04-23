@@ -1,5 +1,7 @@
 package delhi.android.nit.com.terratechnica;
 
+import android.text.Html;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,12 +29,25 @@ public class Data {
                     "\n" +
                     "your mettle. This could be the event that gives you that confidence to code which could change your life\n" +
                     "\n" +
-                    "forever.",
+                    "forever.\n\n\n"+
+
+
+                    "Timings\n\n" +
+
+                    "11:00am-2:00 pm (Day - 1)"
+            ,
             "Think you know everything about programming? Well there are many ways to go, let’s see which one you\n" +
                     "\n" +
                     "pick. This event looks for the real star that stands up to the ability of creativity and logic. So, be ready to storm\n" +
                     "\n" +
-                    "out not just by switching systems but switching your brains into the all new arena.",
+                    "out not just by switching systems but switching your brains into the all new arena.\n\n\n"+
+
+
+                    "Timings\n\n" +
+
+                    "3:30-6:00 pm (Day - 2)"
+            ,
+
             "Outwit, outplay, outlast\n" +
                     "\n" +
                     "Get ready for your chance to glory, where you would have to unleash your coding skills but, you would win\n" +
@@ -41,15 +56,27 @@ public class Data {
                     "\n" +
                     "It’s an opportunity to boast your coding skills, but you can’t entirely rely on them…..\n" +
                     "\n" +
-                    "May the odds always be in your favour.",
+                    "May the odds always be in your favour.\n\n\n"+
+                    "Timings\n\n" +
+
+                    "10:00-11:00 am (Day - 2)"
+            ,
+
             "Hackathon is an onsite mobile app building competition where we give you an opportunity to design and\n" +
                     "\n" +
                     "develop your own mobile or even web app, show off your skills to win the battle and be the master of web\n" +
                     "\n" +
-                    "world.",
+                    "world.\n\n\n"+
+
+                    "Timings\n\n" +
+
+                    "6:00-10:00 am (Day - 1-2)",
             "Whizzing through the land of maths and science , this event will take you through the world of deciphers,\n" +
                     "\n" +
-                    "while testing your basic fundamental maths and science skills every step of the way.",
+                    "while testing your basic fundamental maths and science skills every step of the way.\n\n\n"+
+                    "Timings\n\n" +
+
+                    "2:00-3:00 pm (Day - 1)"
     };
     static String[] codingPics = {
             "http://insigniathefest.com/manojit/nitpl.jpg",
@@ -92,23 +119,24 @@ public class Data {
     };
 
     static String[] cyberDesc = {
-            "CTF is an event which provides a platform for participants to work out on real world scenarios\n" +
+            " Root CTF is a ( jeopardy style ) cyber security event consisting of different challenges . This game touch on many other aspects of information security like cryptography, steganography, binary analysis, reverse engeneering, mobile security , network security ,web security etc . There will multiple questions related to above mentioned problems .\n" +
                     "\n" +
-                    "like malware analysis \u200B¸pentesting , system administration. \u200B The game is played in team of four\n" +
-                    "\n" +
-                    "players where each team is provided with a real world scenario along with an system where they\n" +
-                    "\n" +
-                    "need to seek out a solution which promotes next level. Each level is associated with different\n" +
-                    "\n" +
-                    "kind of scenario of increasing difficulty. This allows the participants to apply various concepts\n" +
-                    "\n" +
-                    "and techniques to reach a solution. The game is entirely based on Command line interface. The team is given\n" +
-                    "\n" +
-                    "secured access to a system to analyze, execute instructions to find the flag. The games assumes players to\n" +
-                    "\n" +
-                    "have knowledge in computer engineering such as files, networking, various tools of system administration.\n" +
-                    "\n" +
-                    "The game duration is estimated to be around 3hrs."
+                    "Terminal is your ship, be the root columbus and capture the flag!\n\n\n" +
+
+                    "Rules and Regulations\n\n" +
+
+                    "This is a team event. There can be 1-2 members in a team." +
+                    "For every solution points will be awarded . Finally team with highest score will be declared winner." +
+                    "Every team must carry at least one laptop with wifi capability." +
+                    "Every team receives an id and pass, which they are meant to keep it to themselves." +
+                    "The participants not allowed to perform illegal activities on the main server." +
+                    "Hacking or tapping any other network other than the challenge is considered a violation." +
+                    "Organisers are bound to disqualify any team breaking the rules.\n\n\n" +
+
+                    "Timings\n\n" +
+
+                    "12:30-3:30 pm (Day - 2)"
+
     };
 
     static String[] roboEvent = {
@@ -136,49 +164,92 @@ public class Data {
     };
 
     static String[] roboDesp = {
-            "To design and construct a remote controlled robot capable of fighting a one on one tournament/Robowar",
+            "To design and construct a remote controlled robot capable of fighting a one on one tournament/Robowar\n\n\n" +
+
+                    "Timings\n\n" +
+
+                    "4:30-5:30 pm (Day - 1)",
+
             "For all RC car lovers, we provide a big platform to prove themselves champion amongst best RC Car drivers. If\n" +
-                    "\n" +
                     "you love RC cars and have excellence in driving cars then drive through the toughest path filled up by high\n" +
-                    "\n" +
-                    "bumps, sharpest turns and high ramps to fly you in air and grab huge prizes.",
+                    "bumps, sharpest turns and high ramps to fly you in air and grab huge prizes.\n\n\n" +
+
+                    "Timings\n\n" +
+
+                    "9:30-11:00 pm (Day - 2)",
             "Robo soccer confronts the sheer and intensified tryst of the football lovers with robomaniacs. The love for the\n" +
-                    "\n" +
                     "game just got technically amplified with the circuits and steel fighting for the precious prize. Infiltrate your\n" +
-                    "\n" +
-                    "robot with the soccer skill;it just might be the striker you need.",
+                    "robot with the soccer skill;it just might be the striker you need.\n\n\n" +
+
+                    "Timings\n\n" +
+
+                    "2:30-4:30 pm (Day - 2)",
+
             "Have always been dwelling over the complexity of circuits and computer programs? Catch the current,\n" +
-                    "\n" +
                     "vanquish the voltage. Walk through the chaos of electrical sophistication, coding skills and emerge as the\n" +
-                    "\n" +
                     "winner. Solve the toughest circuits and come up with their practicality. Invoke, implement, innovate, initialise.\n" +
+                    "It’s never always been the Transformers – CodEmb\n\nfor Round-2 is " + "<b><u>GSM SIM900A</u></b>" +
+
+                    "** External libraries are not allowed except SoftwareSerial\n" +
+
+                    Html.fromHtml("<a href=\"https://www.arduino.cc/en/Tutorial/SoftwareSerialExample\">Software Serial Example</a>") +
                     "\n" +
-                    "It’s never always been the Transformers – CodEmb",
+                    Html.fromHtml("<a href=\"https://www.arduino.cc/en/reference/serial\">Serial Reference</a>") +
+
+                    "\nReferences:\n" +
+                    Html.fromHtml("<a href=\"www.propox.com/download/docs/SIM900_AT.pdf\">SIM900_AT PDF</a>") +
+                    "\n\n\n" +
+
+                    "Timings\n\n" +
+
+                    "5:30-6:30 pm (Day - 1)",
+
             "Terra technica’17 is back with its dais ready for young and ardent minds to exhibit their innovation in\n" +
-                    "\n" +
                     "designing and to prove their mettle in the RIDE under technology.\n" +
-                    "\n" +
                     "Let’s not waste any more time in awaiting the opportunity, just get busy in availing it. Enter the field of robo-\n" +
-                    "\n" +
                     "mech war, with your bots ready to collect their assigned pucks and leave the place with excitement of\n" +
-                    "\n" +
                     "triumph over opponents.\n" +
                     "\n" +
-                    "Come … conquer &amp; savour victory!!",
-            "Do something creative with the hardware issued to\n" +
-                    "you, and showcase your technical creativity.\n",
-            "“If you&#39;re going to decipher a hidden code from a complex set of different mazes, I&#39;m pretty sure you need a\n" +
+                    "Come … conquer & savour victory!!\n\n\n" +
+
+                    "Timings\n\n" +
+
+                    "11:00-12:00 pm (Day - 1)",
+
+            "Do something creative with the hardware\n issued to" +
+                    "you, and showcase your \ntechnical creativity.\n\n\n"
+                    +
+
+                    "Timings\n\n" +
+
+                    "1:30-3:30 pm (Day - 2)",
+
+            "“If you're going to decipher a hidden code from a complex set of different mazes, I'm pretty sure you need a sherlock's brain running the show.”\n" +
                     "\n" +
-                    "sherlock&#39;s brain running the show.”",
-            "Walking on walls has always been fascinating. Calm down, there isn&#39;t any trespassing and stealing here.\n" +
-                    "\n" +
-                    "Destroy the walls of your thoughts to see your creation treading on the vertical. Race up with other bots and\n" +
-                    "\n" +
-                    "score the basket in the fastest time. Defy gravity; it pulls down all. Vertical is the new horizontal, the\n" +
-                    "\n" +
-                    "Escalades.",
-            "Can the metal detector you designed help you\n" +
-                    "win the prize? \n"
+                    "The game is on.\n\n\n"+
+                    "Timings\n\n"+
+                    "12:00-1:00pm (Day - 1)",
+
+            "Walking on walls has always been fascinating.\n" +
+                    " Calm down, there isn't any trespassing\n" +
+                    " and stealing here. Destroy the walls of your\n" +
+                    " thoughts to see your creation treading on the\n" +
+                    " vertical. Race up with other bots and score the\n" +
+                    " basket in the fastest time. Defy gravity; it\n" +
+                    " pulls down all. Vertical is the new horizontal,\n" +
+                    " the Escalades."+
+                    "Escalades." +
+
+                    "Timings\n\n" +
+
+                    "4:00-5:30 pm (Day - 2)",
+
+            "Can the metal detector you designed help you" +
+                    "win the prize? \n\n\n"
+                    +
+                    "Timings\n\n" +
+
+                    "6:30-7:00 pm (Day - 1)"
     };
     static String[] onlineEvent = {
             "Virtual Stock Market",
@@ -188,7 +259,7 @@ public class Data {
     static String[] onlinePics = {
             "http://insigniathefest.com/manojit/virtual.jpg",
             "http://insigniathefest.com/manojit/innovatica.jpg",
-            "http://insigniathefest.com/manojit/typotude.jpg",
+            "http://insigniathefest.com/manojit/typotude.jpg"
     };
 
     static String[] onlineContact = {
@@ -211,7 +282,7 @@ public class Data {
                     "association with MoneyPot. It is an exciting opportunity to show your investment skills and win prizes by\n" +
                     "\n" +
                     "playing this game.",
-            "&quot;Innovation is seeing what everybody has seen and thinking what nobody has thought&quot;\n" +
+            "Innovation is seeing what everybody has seen and thinking what nobody has thought\n" +
                     "\n" +
                     "- Dr. Albert Szent Gyorgyi\n" +
                     "\n" +
@@ -221,25 +292,30 @@ public class Data {
                     "\n" +
                     "will make our lives better.",
             "After all, nothing is binary. A world of fractions awaits\n" +
-                    "exploration.\n"
+                    "exploration.\n\n\n"
+                    +
+
+                    "Timings\n\n" +
+
+                    "10:00-11:00 am (Day - 2)"
     };
 
     static String[] MiscEvent = {
             "NITD Expo",
             "Youth Parliament",
-            "ProbabilityMadeEasy"
+            "Paradox"
     };
 
     static String[] miscContact = {
             "Manoj Harsha(9910599296)\nShantanu Patil(9158121986)",
             "Bhavanam Yoga Sasidhar Reddy(8750267966)\nSanyogita Singh(9560494264)",
-            "Rajat Garg(8750904045)\nSamridhi Goel(8377811423)"
+            "Chirag(9971799276)\nShreshtha(9999083897)"
     };
 
     static String[] MiscPics = {
             "http://insigniathefest.com/manojit/nitdexpo.jpg",
             "http://insigniathefest.com/manojit/youth.jpg",
-            "http://insigniathefest.com/manojit/probability.jpg"
+            "http://insigniathefest.com/manojit/paradox.jpg"
     };
 
     static String[] MiscDesp = {
@@ -247,17 +323,21 @@ public class Data {
                     "\n" +
                     "Commemorating on 23rd of March 2017, TerraTechnica is set to be bigger than ever. This document will act\n" +
                     "\n" +
-                    "as a guide for you to participate, excel with and and showcase your prototype on a National Stage.",
+                    "as a guide for you to participate, excel with and and showcase your prototype on a National Stage.\n\n\n"+
+
+                    "Timings\n\n" +
+
+                    "2:00-5:30 pm (Day - 2)",
             "Delegates of various colleges will be given various agendas on a specified topic. A healthy\n" +
                     "\n" +
                     "discussion under the supervision of the panel of judges is expected. Later, the panel decides the winners. The\n" +
                     "\n" +
-                    "exact agenda and format will be disclosed 3/4 weeks before the event day.",
-            "This event consist of a workshop and a competition. Workshop is about solving\n" +
-                    "\n" +
-                    "quizzes using basic concepts of probability. Concepts of probability will be thoroughly discussed.\n" +
-                    "\n" +
-                    "The second part of the event is a competition comprising of solving 5 general quizzes."
+                    "exact agenda and format will be disclosed 3/4 weeks before the event day.\n\n\n"+
+
+                    "Timings\n\n" +
+
+                    "11:30am-2:00pm (Day - 1)",
+            "The gaming event of TerraTechnica'17 featuring overwhelming games like FIFA 17, Call of Duty 4 and CS:Go. Come and witness the fun and enthusiasm."
     };
 
     public static void setFAQData() {

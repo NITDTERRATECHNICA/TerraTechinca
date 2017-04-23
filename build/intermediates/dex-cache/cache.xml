@@ -3,345 +3,363 @@
 
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.bignerdranch.android\expandablerecyclerview\1.0.3\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-10.2.0_efde02c6ccb5cc2c8b1d9b6cec40e43db6584d53/classes.dex" />
+        sha1="f5eeb4583102dd6771ab71bc8f0c6965548dd3e0">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.bignerdranch.android-expandablerecyclerview-1.0.3_dcc72bcd379ce3e8929d0b3fc831ad6191e013db\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/10.2.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="e7157a9577c983651d6c6ee313813424fe2d8ab6">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-plus-10.2.0_b475f98908f8587adb36db30429f4ba544397beb/classes.dex" />
+        sha1="6003d64df88a6ce5e961fa2bad7f1b9b97689ac1">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.2.1_6141dab28df04f321945e1836c730a97b01d00b4\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-10.2.0_799b441dc6b2643d262e8f2abdb47c2bff80f212/classes.dex" />
+        sha1="888983f51cf34f57a93ff16832552f2f15937212">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.2.1_7de549756329d96ecee02f3bf017a698a11eccfd\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.3.0_151038891226a97792901443ae7f3316c1669ad8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.3.0_9375ed4dac24c5dbbb0d604c517704ee0b8390b3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.4.1_b91eac65c0acafc759266ac88b3eddf9507e6da8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-10.2.0_0cc9f0d0778961bcb98cecd67a59a56e580b0cdb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth-base/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4e01b82d664e1a8253b2b9658e74b5da35c8771d">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-base-10.2.0_2aa0bf9d3e5edd3932efd282826ddf26ce6c8060/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4b746ef0fd46acb5aaf3d9ab9a4cec22c28d3211">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.3.0_a6ca73e1f6dc642aafff96c6e96a57ccbd2afcd5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4af7e52de7bbc4c6891655083298b3c5fbd16ee6">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_5e6f2ce0c6756b2ba6f86341573dc6994017913f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-auth/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b831d3902674d096189451d46fce219e2c2904b7">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-auth-10.2.0_02707099487f815211610dece05def580540758a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.roughike/bottom-bar/2.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b034fc34b6f13e95ccaaff6aa76819c34c6bce41">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.roughike-bottom-bar-2.1.1_a6f5df14d40299114445d03ea30a6ff5e89ca894/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="518768f3200963fbfec652f498da2c9d39245234">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.3.0_940294e686c1eb2908cc9d531cabf4edb66cbaed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/palette-v7/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ec3360994c4007c282a4b651723603e82682b601">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-palette-v7-25.3.0_07c2ac0f50159b23050da1b66087561b72e85a9c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-multidex-1.0.1_5c362020b24602583e071c0dd59b4dac4d850715/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3d13e510077b35fe8e49930a627dd849ad5da0dc">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-10.2.0_f7ec65f2bf7ee1070d1458b6fa9a4f6723b6feeb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c5d103b270b3f3b50d8e6b44aa8e068b0de33426">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-cardview-v7-25.3.0_cf1a4916e78f1749af1f8081a4e2ec01492c1229/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/picasso-2.5.2_576e52f1e112049a3f7770a79be7e4426ac18cc2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6da05b7498da036b5b37c3beb861cd2060929dcd">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-maps-10.2.0_52dc677464579c3b9592215e610e8ee6938aa2ed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/customtabs/25.0.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-customtabs-25.0.0_117831b323abb135636c337fefdb703bec364bf5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0cf2a6d4ac47e95ced3dcd86a83c24e16f2f46f7">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_658d0788176abd98230a04ff6ca6bcc0447cd0d6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/transition/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fbb206f7a119f66ce171d95aae1225a5b209a8b7">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-transition-25.3.0_c0f9b176966a7adbf07cbd0a5d28a71d4f4fefb8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a3e61044038fb54cddf6b8dc79f41d2b57f42caf">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.3.0_97e61f1b9458a19f7acfb6f3ccb06a8d63c2ca72/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.0/support-annotations-25.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.0_4730fb000be88cb5313d4fc010a18ebb9d86b499/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.9.0_cbf4318e0e20708d03c7e21ad1b40985da65eede/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="70f23cb87278f89aa51e6f57e8f0fd5266572d95">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.3.0_7473eaaa8fae2921ee694f89e96f3ee72aff74f5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-10.2.0_f49ab4ff568486f70c69afdfa90ccc4f7dbcc070/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/10.2.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-10.2.0_1c1d2bafc38784a51a550a79007734960adadfde/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.4.0/8ad21bf21784dacce5f2043afb97218cc377e835/bolts-applinks-1.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-applinks-1.4.0_d9b8bf5580d16e35788cd50f3db34d412ba51ffc/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.3.0_3d071b42b7ff767ed81f1ae2a8cf47043f42ed86/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-tasks-1.4.0_35788ae8c75e5ea27ba9ed3b9a0d165c84c33fc7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/design/25.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9ab787a20aae245b5b3651ae0b9c38459eb37715">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-25.3.0_bc2a971019034a6966300b875f1af55a6cd68660/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/manojit/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"
+        jar="C:\Users\Manojit Paul\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-3.7.0_e43e831541223af6293ef600117422584f1d4270/classes.dex" />
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_d7c721fefc476bc4efe188de06f86a281a2e5c87\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.3.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.21.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.3.0_882f44525f57ae713b26396aa8ed0a803bfd8091/classes.dex" />
+        sha1="6a70160a70685ce25bda1c6e094c73676a399039">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.21.1_308a919c168f73fd7227aa1a90a9bcf08c1c39c9\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/10.2.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-10.2.0_5f27a36c8439fbf9de8787e653e4e1ddfc13787f/classes.dex" />
+        sha1="b6f1439b66321714503c4e1de00436857c76bb44">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7233f797e73d46aaaae8345b857d6632ec6dc00d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.20.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="cb2ef781533c3f11c4e80341cbaebad275c66586">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.facebook.android-facebook-android-sdk-4.20.0_14e2732990b314e15f518c7b8852a78b672e5a5e/classes.dex" />
+        sha1="b215e312bdc1ee7bfda31674eab5df8bad45c014">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.2.1_92da1f4c1499fae9fda19aa05b31dba0e126ead6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.3.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d6a04527c17597019dad82777c5094a3d60d1c33">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.3.0_ac984aef665d4a3d765dd0cd6f8b0b01ddf8248e/classes.dex" />
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.3.1_85091eb4b788f1997f27ddadcbbcc40224b56af6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.3.0/jars/classes.jar"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
-        <dex dex="/home/manojit/Desktop/TerraTechnica/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.3.0_8cd66097d36da2d54b4e4bfd876210751c254c68/classes.dex" />
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.3.1_77b111facc8608ee2bf1eb12b58117fdbf5262fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.3.1_d8a89b560c7b4950eab9504309043c8615576e1c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.3.1_5f91416c008bab44c92f6b75bf97db22a2918f96\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="E:\manojit-android-sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_0587079e21a594c7211fa78a5363b8d85d7b4f9a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a5d5553c308643a9022f15513ebdd59e9c78d82">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.2.1_29e061b0bf3f264b49f239953a067316edbe0dd5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="399f75732ff1ac159f9e73611536f1508bf18d3b">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.2.1_b0fcef5ebdabf29eb87ceafdd059b40a5ed195cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25f55515117e14a658120a7b01a9ea5170409db4">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.2.1_a7e91f28029bfddf4e4765d00ec76b171fc4efc6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bbcb6e1d59fbc703e1c5dcd1f34aa6b158f1aacc">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_42b066e852c0c9ab3f543c60da1f3d687fc0e0b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.1\c7c4f9e35c2fd5900da24f9872e3971801f08ce0\okhttp-3.4.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.1_dc0c7f1a489a3f22d0cd8fba7582c3cad8aa0dfb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.3.1_53b1b716da84c146678ff85632cc6db82d177462\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.3.1_07237f640ed94e8a92658664975112e6e1f6d34f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_83daa22d18caa38893f3b862f7ef2e576d99c6bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\customtabs\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="94ba691efc31bf53264db0716d9c9ec03843ea31">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-25.0.0_8d02d4c178e6f721427e7f9a835b1273d2cc6bec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="12032271e6be735e811ad529cb08ff066c381640">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.2.1_ee82768b44b786ff6f029ff04b84570d4d90cbf6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\palette-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="379a48c2da13ffb7ec7134f2c715663834357670">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-25.3.1_32bc18c4471db4ba105ca52e6eff4bd5b20cd1c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.3.1_e49565ad43e91a6fbee3dd19dc119953f0d64966\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b32372f6821e003ae24cd3389bdd7925247f100">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.2.1_2ba03e30adcbf3b1fe2e814caf91723e94422f3e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.3.1_a274fa8255e318c3b0763d52a3b42e1332f374de\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_0df7b89962539cc66aba163f5a54680dba7e1553\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_6e81a35afb5b036ab6c6bfad582714d06be0fece\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.3.1_5fbc2386ea5851c9eac5dd17dac101db4620e9b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a1aa1dd9917e887bfe732cc5e561ae6ae8f9a84a">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.2.1_35f6fef9f29863fb862ecb1a52e976fb918ed49b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.3.1_23c9143156ac935a2f6012ab0d516ae42e1b7e1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-25.3.1_b3b5a49ec9ebcbc95d2b8aea66008760c8039f0e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7626a9aa507bbbdc16188bc9a9f9bf3370c1ddd">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.2.1_6aa96645bf79271dce25bb374b5abd0ed3034232\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="19696dc358ac668e341f28c41e3387d61ccdb81d">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.2.1_7db61ffacffab4b2d67941f58d2cf609aa2abc80\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.roughike\bottom-bar\2.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b034fc34b6f13e95ccaaff6aa76819c34c6bce41">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.roughike-bottom-bar-2.1.1_78b0f93c6e6335888a4b0ed9fe52f6f0274e341e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.3.1_bc6d7d268608ff93411f5416fd9cccca1b434408\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_cee99c111a474719500daf2499850fc5c002ba9b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.3.1_161b6bebf3e35d0a1c56217368b1f4fa4240d097\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bdcc2a9572f18b8c90a3a157cab6cdfc97c6c736">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.2.1_2d977ffc5d604c8a7f17ba9272cd4e345ec4ea02\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Manojit Paul\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\Manojit Paul\Desktop\Final\TerraTechincaFinal\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_df3a26c820f2c65542ccb6c6568115d7912298d2\classes.dex" />
     </item>
 
 </items>

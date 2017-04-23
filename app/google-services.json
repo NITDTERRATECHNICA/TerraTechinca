@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "590940517691",
-    "project_id": "terra-219fc"
+    "firebase_url": "https://terra-219fc.firebaseio.com",
+    "project_id": "terra-219fc",
+    "storage_bucket": "terra-219fc.appspot.com"
   },
   "client": [
     {
@@ -13,11 +15,15 @@
       },
       "oauth_client": [
         {
+          "client_id": "590940517691-mgahguarpu3rismm06mumpcd6v2249ka.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
           "client_id": "590940517691-cii7q2dck5e369a2gldtm4psdbopb3b3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "delhi.android.nit.com.terratechnica",
-            "certificate_hash": "a61a831798a7372e6bd750e5be2969eff1f29bbc"
+            "certificate_hash": "702edebf6981f868f64a6a01e824bad33331293d"
           }
         },
         {
@@ -35,11 +41,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "590940517691-mgahguarpu3rismm06mumpcd6v2249ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

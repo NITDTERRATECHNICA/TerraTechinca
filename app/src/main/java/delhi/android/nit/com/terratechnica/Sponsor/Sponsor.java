@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,10 @@ public class Sponsor extends Fragment {
 
     private View view;
     private int spCount;
+
+    private ViewGroup p;
+
+    private boolean flag = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -120,6 +125,8 @@ public class Sponsor extends Fragment {
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+            p = parent;
             return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.no_sponsor, parent, false));
         }
 
@@ -129,14 +136,39 @@ public class Sponsor extends Fragment {
             if (!sponsorModelList.isEmpty()) {
                 SponsorModel model = sponsorModelList.get(position);
 
-                holder.sponsor_name.setText(model.getName());
-                holder.sponsor_support_level.setText(model.getSupportLevel());
-                Picasso.with(getContext())
-                        .load(model.getImg())
-                        .into(holder.sponsor_image);
+                    if (position % 2 == 0) {
+                        holder.down.setVisibility(View.GONE);
+                        holder.up.setVisibility(View.VISIBLE);
 
-                if(pDialog.isShowing())
-                    pDialog.dismiss();
+                        holder.sponsor_name.setText(model.getName());
+                        holder.sponsor_support_level.setText(model.getSupportLevel());
+
+                    if (isOnline()) {
+
+                        Picasso.with(p.getContext())
+                                .load(model.getImg())
+                                .into(holder.sponsor_image);
+                    }
+
+                } else {
+                    holder.up.setVisibility(View.GONE);
+                    holder.down.setVisibility(View.VISIBLE);
+
+                    holder.sponsor_name1.setText(model.getName());
+                    holder.sponsor_support_level1.setText(model.getSupportLevel());
+
+                    if (isOnline()) {
+                        Picasso.with(p.getContext())
+                                .load(model.getImg())
+                                .into(holder.sponsor_image1);
+                    }
+                    else if (flag) {
+                        Toast.makeText(p.getContext(), "Failed to load the images!", Toast.LENGTH_SHORT).show();
+                        flag = false;
+                    }
+                }
+
+
 
             }
         }
@@ -170,25 +202,33 @@ public class Sponsor extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-//            Toast.makeText(getContext(), sponsorModelList.toString(), Toast.LENGTH_SHORT).show();
+            if(pDialog.isShowing())
+                pDialog.dismiss();
 
             setUpData(view);
         }
     }
 
-
     private class ViewHolder extends RecyclerView.ViewHolder {
+
+        RelativeLayout up, down;
 
         ImageView sponsor_image;
         TextView sponsor_name, sponsor_support_level;
+        ImageView sponsor_image1;
+        TextView sponsor_name1, sponsor_support_level1;
 
         public ViewHolder(View itemView) {
             super(itemView);
             sponsor_image = (ImageView) itemView.findViewById(R.id.sponsor_image);
             sponsor_name = (TextView) itemView.findViewById(R.id.sponsor_name);
             sponsor_support_level = (TextView) itemView.findViewById(R.id.sponsor_support_level);
+            sponsor_image1 = (ImageView) itemView.findViewById(R.id.sponsor_image1);
+            sponsor_name1 = (TextView) itemView.findViewById(R.id.sponsor_name1);
+            sponsor_support_level1 = (TextView) itemView.findViewById(R.id.sponsor_support_level1);
 
+            up = (RelativeLayout) itemView.findViewById(R.id.up);
+            down = (RelativeLayout) itemView.findViewById(R.id.down);
         }
     }
 }

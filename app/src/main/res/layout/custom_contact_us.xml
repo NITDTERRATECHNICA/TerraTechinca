@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="#f2f2f2"
+    app:cardBackgroundColor="#2e2e2e"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -29,7 +29,7 @@
                 android:id="@+id/people_name"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:textColor="#2c2c2c"
+                android:textColor="#ffffff"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:textSize="25sp" />
@@ -38,7 +38,7 @@
                 android:id="@+id/people_post"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:textColor="#1d1d1d"
+                android:textColor="#ffffff"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:textSize="20sp" />
@@ -55,7 +55,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
-                    android:background="#25b700"
+                    android:background="#004894"
                     android:src="@android:drawable/ic_menu_call" />
 
                 <ImageButton

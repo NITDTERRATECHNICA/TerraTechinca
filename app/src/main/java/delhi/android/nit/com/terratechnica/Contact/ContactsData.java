@@ -1,5 +1,7 @@
 package delhi.android.nit.com.terratechnica.Contact;
 
+import java.util.List;
+
 public class ContactsData {
 
     private String personName;
@@ -59,4 +61,5 @@ public class ContactsData {
     public void setPersonSupportLevel(String personSupportLevel) {
         this.personSupportLevel = personSupportLevel;
     }
+
 }

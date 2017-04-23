@@ -117,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:textColor="@color/colorPrimary"
-                        android:text="Date :\n21st - 23rd April"/>
+                        android:text="Date :\n18th - 19th April"/>
 
                 </LinearLayout>
 

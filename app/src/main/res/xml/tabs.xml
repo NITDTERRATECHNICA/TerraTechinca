@@ -6,7 +6,7 @@
         title="About"/>
     <tab
         id="@+id/tab_events"
-        icon="@drawable/event"
+        icon="@drawable/events_des"
         title="Events"/>
     <tab
         id="@+id/tab_instagram"
@@ -15,5 +15,5 @@
     <tab
         id="@+id/tab_contact"
         icon="@drawable/contact"
-        title="Contact"/>
+        title="Team"/>
 </tabs>

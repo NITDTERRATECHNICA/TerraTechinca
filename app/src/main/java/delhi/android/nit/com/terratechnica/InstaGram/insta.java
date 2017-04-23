@@ -43,6 +43,7 @@ public class insta extends Fragment {
     ProgressBar progressBar;
     Adapter adapter;
     String URL = "https://www.instagram.com/terratechnica/media/";
+    static String link ;
 
     public insta() {
     }
@@ -63,7 +64,8 @@ public class insta extends Fragment {
         if (isOnline()) {
             new Background().execute();
         } else {
-            Toast.makeText(getContext(), "Network not available!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Network not available!", Toast.LENGTH_SHORT).show();progressBar.setVisibility(View.GONE);
+
         }
 
     }
@@ -170,7 +172,8 @@ public class insta extends Fragment {
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            LargePicture largePicture = new LargePicture(setofFlowers.get(galleryRV.getChildAdapterPosition(itemView)).getFullImageLink());
+                            link = setofFlowers.get(galleryRV.getChildAdapterPosition(itemView)).getFullImageLink();
+                            LargePicture largePicture = new LargePicture();
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                                 largePicture.setSharedElementEnterTransition(TransitionInflater.from(getContext()).inflateTransition(R.transition.transition));
                                 largePicture.setSharedElementReturnTransition(TransitionInflater.from(getContext()).inflateTransition(R.transition.transition));

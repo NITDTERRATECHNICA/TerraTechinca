@@ -33,7 +33,7 @@ public class MyApplication extends Application {
                 md.update(signature.toByteArray());
                 //String something = new String(Base64.encode(md.digest(), 0));
                 //String something = new String(Base64.encodeBytes(md.digest()));
-                Log.e("hash key", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                Log.e("hash-key", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         } catch (PackageManager.NameNotFoundException e1) {
             Log.e("name not found", e1.toString());
